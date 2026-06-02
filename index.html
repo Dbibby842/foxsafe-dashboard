@@ -1,364 +1,260 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>FoxSafe · Staff Dashboard</title>
-    <meta name="description" content="Fox Group internal health & safety dashboard — handbooks, inductions, walk-rounds, risk assessments and logs in one place." />
+    <title>FoxSafe · Fox Group Quarries</title>
+    <meta
+      name="description"
+      content="Fox Group Quarries — site inductions, risk assessments and safe systems of work for Tong, Ellel Crag, Lydiate Lane and Bradley's Sandpit."
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230d1d4d'/><path d='M9 9h14v4h-9v3h7v4h-7v7H9z' fill='%23f6a51a'/></svg>" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230d1d4d'/><path d='M9 22 V10 H21 V12.6 H12 V15.6 H19 V18.2 H12 V22 Z' fill='%23f6a51a'/></svg>"
+    />
   </head>
   <body>
-    <!-- Top bar -->
-    <header class="topbar" role="banner">
-      <div class="container topbar__inner">
-        <a class="brand" href="#top" aria-label="FoxSafe — Fox Group Health & Safety">
-          <svg class="brand__logo" viewBox="0 0 56 32" aria-hidden="true">
-            <rect x="0" y="0" width="40" height="32" rx="4" fill="currentColor" />
-            <text x="6" y="23" font-family="Space Grotesk, sans-serif" font-weight="800" font-size="18" fill="#fff" letter-spacing="-0.5">FOX</text>
-            <path d="M42 4 L54 16 L42 28 L46 16 Z" fill="#f6a51a" />
-            <path d="M48 4 L56 12 L48 20 L50 12 Z" fill="#9bc63b" opacity="0.95" />
-          </svg>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="app-header">
+      <div class="app-header__inner">
+        <a class="brand" href="#main" aria-label="FoxSafe home">
+          <span class="brand__mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" width="34" height="34" role="img" aria-label="FoxSafe">
+              <rect width="32" height="32" rx="7" fill="currentColor" />
+              <path
+                d="M9 22 V10 H21 V12.6 H12 V15.6 H19 V18.2 H12 V22 Z"
+                fill="var(--fox-amber)"
+              />
+            </svg>
+          </span>
           <span class="brand__text">
             <span class="brand__name">FoxSafe</span>
-            <span class="brand__sub">Staff Dashboard</span>
+            <span class="brand__sub">Fox Group Quarries</span>
           </span>
         </a>
 
-        <nav class="topnav" aria-label="Primary">
-          <a href="#handbooks">Handbooks</a>
-          <a href="#risk-assessments">Risk Assessments</a>
-          <a href="#inductions">Inductions</a>
-          <a href="#walkrounds">Walk-Rounds</a>
-          <a href="#guidance">Guidance</a>
-          <a href="#logs">Logs</a>
+        <nav class="app-nav" aria-label="Primary">
+          <a class="app-nav__link is-active" href="#sites">Sites</a>
+          <a class="app-nav__link" href="#ra">Risk assessments</a>
+          <a class="app-nav__link" href="#ssow">Safe systems of work</a>
+          <a class="app-nav__link" href="#inductions">Inductions</a>
         </nav>
 
-        <div class="topbar__actions">
-          <button class="iconbtn" data-theme-toggle aria-label="Switch theme" title="Switch theme"></button>
+        <div class="app-header__controls">
+          <div class="clock" aria-live="polite">
+            <span class="clock__time" id="clock-time">--:--</span>
+            <span class="clock__date" id="clock-date">—</span>
+          </div>
+          <button
+            id="theme-toggle"
+            class="icon-btn"
+            type="button"
+            aria-label="Toggle dark mode"
+            title="Toggle theme"
+          >
+            <svg
+              class="icon-sun"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="4" />
+              <path
+                d="M12 3v2M12 19v2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M3 12h2M19 12h2M5.6 18.4 7 17M17 7l1.4-1.4"
+              />
+            </svg>
+            <svg
+              class="icon-moon"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" />
+            </svg>
+          </button>
         </div>
       </div>
     </header>
 
-    <main id="top">
-      <!-- Hero -->
+    <main id="main" class="page">
+      <!-- ============================================================
+           HERO
+           ============================================================ -->
       <section class="hero">
-        <div class="container hero__inner">
+        <div class="hero__inner">
           <div class="hero__copy">
-            <span class="eyebrow"><span class="dot"></span> Fox Group · Health & Safety</span>
-            <h1>Everything the site team needs, <span class="accent">in one place.</span></h1>
-            <p class="lede">Handbooks, risk assessments, induction forms, walk-round checklists and compliance logs — organised so anyone can find what they need in seconds.</p>
-            <div class="hero__actions">
-              <a class="btn btn--primary" href="#risk-assessments">Browse risk assessments</a>
-              <a class="btn btn--ghost" href="#search">Quick search</a>
-            </div>
-            <div class="hero__stats" aria-label="At a glance">
-              <div><strong>42</strong><span>Risk Assessments</span></div>
-              <div><strong>5</strong><span>Site Inductions</span></div>
-              <div><strong>5</strong><span>Walk-Round Forms</span></div>
-              <div><strong>10+</strong><span>SSoWs & Guidance</span></div>
+            <span class="eyebrow">Quarry safety hub</span>
+            <h1 class="hero__title">
+              Inductions, risk assessments &amp; safe systems of work — for every Fox Group quarry.
+            </h1>
+            <p class="hero__lead">
+              Pick a site to scan the QR-code induction, review the live risk-assessment register
+              and pull up the safe system of works before you start. Built for the team, kept up to
+              date by the safety office in Warrington.
+            </p>
+            <div class="hero__cta">
+              <a class="btn btn--primary" href="#sites">View sites</a>
+              <a class="btn btn--ghost" href="#ra">Risk register</a>
             </div>
           </div>
-          <aside class="hero__card" aria-label="Latest update">
-            <div class="hero__card-head">
-              <span class="pill pill--amber">Live</span>
-              <span class="hero__card-time" id="now"></span>
+          <aside class="hero__stats" aria-label="At a glance">
+            <div class="stat">
+              <span class="stat__num">4</span>
+              <span class="stat__label">Active quarry sites</span>
             </div>
-            <h2>Wagon Fitters Handbook</h2>
-            <p>FG1.0 · January 2025 · 121 pages · 42 risk assessments (WF001 – WF041).</p>
-            <ul class="meta">
-              <li><span>Prepared by</span><strong>Derick Bibby</strong></li>
-              <li><span>Reviewed by</span><strong>Lee Hardy</strong></li>
-              <li><span>Baseline PPE</span><strong>Footwear · Hi-vis Jacket · Hi-vis Trousers</strong></li>
-              <li><span>Review cycle</span><strong>Annually</strong></li>
-            </ul>
-            <a class="btn btn--block" href="https://drive.google.com/file/d/1cHh1Ek5ZJjZul7qaGgoFHycaNRWAbhd7/view" target="_blank" rel="noopener">Open handbook ↗</a>
+            <div class="stat">
+              <span class="stat__num">18</span>
+              <span class="stat__label">Risk assessments on file</span>
+            </div>
+            <div class="stat">
+              <span class="stat__num">16</span>
+              <span class="stat__label">Safe systems of work</span>
+            </div>
+            <div class="stat">
+              <span class="stat__num">QR</span>
+              <span class="stat__label">Site induction per quarry</span>
+            </div>
           </aside>
         </div>
       </section>
 
-      <!-- Search -->
-      <section id="search" class="search" aria-label="Quick search">
-        <div class="container">
-          <div class="search__bar">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-            <input id="q" type="search" placeholder="Search WF001 abrasive wheels, induction Linney Lane, T006…" aria-label="Search the dashboard" />
-            <button type="button" id="qClear" class="search__clear" aria-label="Clear search">Clear</button>
+      <!-- ============================================================
+           SITES
+           ============================================================ -->
+      <section class="block" id="sites" aria-labelledby="sites-title">
+        <header class="block__head">
+          <div>
+            <h2 id="sites-title" class="block__title">Quarry sites</h2>
+            <p class="block__sub">
+              Tap a site to open its induction form, risk-assessment register and safe system of
+              works.
+            </p>
           </div>
-          <p class="search__hint">Filters every section below — codes (WF, G, T, SSoW, CRH, J, P), titles and keywords all work.</p>
-        </div>
+          <div class="filter">
+            <label class="filter__label" for="site-search">Find a site</label>
+            <input
+              id="site-search"
+              type="search"
+              class="filter__input"
+              placeholder="Search Tong, Ellel Crag, Lydiate, Bradley's…"
+              autocomplete="off"
+            />
+          </div>
+        </header>
+
+        <div class="grid grid--sites" id="site-grid" role="list"></div>
       </section>
 
-      <!-- Handbooks -->
-      <section id="handbooks" class="section">
-        <div class="container">
-          <header class="section__head">
-            <div>
-              <span class="section__kicker">01 — Core</span>
-              <h2 class="section__title">Handbooks & Master Documents</h2>
-              <p class="section__sub">The authoritative health & safety reference for fitters, drivers and site teams.</p>
-            </div>
-          </header>
-          <div class="grid grid--cards" data-filterable>
-            <article class="card card--feature">
-              <div class="card__head">
-                <span class="badge badge--navy">FG1.0</span>
-                <span class="badge">PDF · 121 pp</span>
-              </div>
-              <h3>Wagon Fitters Handbook</h3>
-              <p>42 risk assessments (WF001 – WF041) covering workshop, vehicle, lifting, emergency and PPE risks. Reviewed annually.</p>
-              <a class="link" href="https://drive.google.com/file/d/1cHh1Ek5ZJjZul7qaGgoFHycaNRWAbhd7/view" target="_blank" rel="noopener">Open PDF ↗</a>
-            </article>
-            <article class="card">
-              <div class="card__head">
-                <span class="badge badge--amber">Register</span>
-                <span class="badge">Sheet</span>
-              </div>
-              <h3>Wagon Fitters Compliance Register</h3>
-              <p>Signature register tracking who has read and acknowledged the handbook.</p>
-              <a class="link" href="https://docs.google.com/spreadsheets/d/1ZQY3iTmTgP8v-CuM7XH3AL_aJja5-bw1x2Og1jL1i04/edit" target="_blank" rel="noopener">Open sheet ↗</a>
-            </article>
-            <article class="card">
-              <div class="card__head">
-                <span class="badge">QR</span>
-                <span class="badge">PDF / DOCX</span>
-              </div>
-              <h3>QR Code — Wagon Fitters Handbook</h3>
-              <p>Print-ready QR for workshops so anyone can scan straight to the handbook.</p>
-              <a class="link" href="https://drive.google.com/file/d/1xT0k2G-FbCgEmwmqDrV9A1dmwzuuAEQA/view" target="_blank" rel="noopener">Open QR poster ↗</a>
-            </article>
-            <article class="card">
-              <div class="card__head">
-                <span class="badge badge--navy">Quarry</span>
-                <span class="badge">PDF</span>
-              </div>
-              <h3>Tong Quarry Risk Assessments</h3>
-              <p>Site-specific risk assessments for Tong Quarry operations.</p>
-              <a class="link" href="https://drive.google.com/file/d/1nEWCY1pDG0TIvnu4zQ6p2e7Afl65Hg2F/view" target="_blank" rel="noopener">Open PDF ↗</a>
-            </article>
+      <!-- ============================================================
+           RISK ASSESSMENTS  (Tong Quarry register)
+           ============================================================ -->
+      <section class="block" id="ra" aria-labelledby="ra-title">
+        <header class="block__head">
+          <div>
+            <h2 id="ra-title" class="block__title">Risk assessment register</h2>
+            <p class="block__sub">
+              Plant, transport and task-based risk assessments held against Tong Quarry. Same
+              register applies across Fox Group Quarries unless a site-specific RA is issued.
+            </p>
           </div>
-        </div>
+          <div class="filter">
+            <label class="filter__label" for="ra-search">Filter RAs</label>
+            <input
+              id="ra-search"
+              type="search"
+              class="filter__input"
+              placeholder="Search excavator, roller, crusher…"
+              autocomplete="off"
+            />
+          </div>
+        </header>
+
+        <div class="ra-groups" id="ra-groups"></div>
       </section>
 
-      <!-- Risk Assessments -->
-      <section id="risk-assessments" class="section section--tinted">
-        <div class="container">
-          <header class="section__head">
-            <div>
-              <span class="section__kicker">02 — WF Series</span>
-              <h2 class="section__title">Wagon Fitter Risk Assessments</h2>
-              <p class="section__sub">Each WF reference matches a chapter in the Wagon Fitters Handbook. Click a tile to open the relevant section.</p>
-            </div>
-            <div class="legend" aria-label="Risk matrix bands">
-              <span><i style="background:#3aa055"></i>1–3 Low</span>
-              <span><i style="background:#2f76b8"></i>4–7 Moderate</span>
-              <span><i style="background:#e7b522"></i>8–14 Review</span>
-              <span><i style="background:#d44b2a"></i>15–19 Action</span>
-              <span><i style="background:#0d1d4d;color:#fff"></i>20–25 STOP</span>
-            </div>
-          </header>
+      <!-- ============================================================
+           SAFE SYSTEMS OF WORK  (Tong Quarry SSoW)
+           ============================================================ -->
+      <section class="block" id="ssow" aria-labelledby="ssow-title">
+        <header class="block__head">
+          <div>
+            <h2 id="ssow-title" class="block__title">Safe systems of work</h2>
+            <p class="block__sub">
+              The SSoW set held at Tong Quarry. Read the relevant SSoW before starting any of these
+              tasks.
+            </p>
+          </div>
+          <div class="filter">
+            <label class="filter__label" for="ssow-search">Filter SSoW</label>
+            <input
+              id="ssow-search"
+              type="search"
+              class="filter__input"
+              placeholder="Search quarry, tipping, lifting…"
+              autocomplete="off"
+            />
+          </div>
+        </header>
 
-          <div class="grid grid--ra" data-filterable id="raGrid"></div>
-        </div>
+        <div class="grid grid--ssow" id="ssow-grid"></div>
       </section>
 
-      <!-- Inductions -->
-      <section id="inductions" class="section">
-        <div class="container">
-          <header class="section__head">
-            <div>
-              <span class="section__kicker">03 — Onboarding</span>
-              <h2 class="section__title">Site Health & Safety Inductions</h2>
-              <p class="section__sub">Google Forms used to brief contractors and new starters before they enter a site.</p>
-            </div>
-          </header>
-          <div class="grid grid--cards" data-filterable>
-            <article class="card card--site">
-              <span class="site-tag">Manchester</span>
-              <h3>City Airport Manchester</h3>
-              <p>Site induction form for the City Airport asphalt project.</p>
-              <a class="link" href="https://docs.google.com/forms/d/1u3S-78IxvWMEpUjjTKcq1KQya4H4uqgOo881vgpCk84/edit" target="_blank" rel="noopener">Open form ↗</a>
-            </article>
-            <article class="card card--site">
-              <span class="site-tag">Quarry</span>
-              <h3>Broken Stone Road</h3>
-              <p>Site-specific induction for the Broken Stone Road operation.</p>
-              <a class="link" href="https://docs.google.com/forms/d/1uRFW-o-ZbXj1oAMyvrWOcOkcA3kSW_s__zcy0hV2yUE/edit" target="_blank" rel="noopener">Open form ↗</a>
-            </article>
-            <article class="card card--site">
-              <span class="site-tag">Plant</span>
-              <h3>Linney Lane</h3>
-              <p>Induction form for Linney Lane (responses sheet linked).</p>
-              <a class="link" href="https://docs.google.com/forms/d/15T_JcOi4RBgqjbdflgCecg3NCfEpCErwfz5QdrzeTqg/edit" target="_blank" rel="noopener">Open form ↗</a>
-              <a class="link link--muted" href="https://docs.google.com/spreadsheets/d/1-sbJ2Fa_jHHRsPcaOVMiYocWbBgH-7mLZwwwB_hEeT0/edit" target="_blank" rel="noopener">Linney Lane responses ↗</a>
-            </article>
-            <article class="card card--site">
-              <span class="site-tag">Asphalt</span>
-              <h3>Asphalt Plant Sandham</h3>
-              <p>Induction form for the Sandham asphalt plant project.</p>
-              <a class="link" href="https://docs.google.com/forms/d/1C3VIGXfa5w8Oldeylp4f9kXK_W-fMeRhM2O9IH7jA_g/edit" target="_blank" rel="noopener">Open form ↗</a>
-              <a class="link link--muted" href="https://docs.google.com/forms/d/1YdD83zivGp7eLYtz9gpJH2FnEOEHzqOFEVOmibz9ufg/edit" target="_blank" rel="noopener">Project induction (extended) ↗</a>
-            </article>
+      <!-- ============================================================
+           INDUCTIONS
+           ============================================================ -->
+      <section class="block" id="inductions" aria-labelledby="ind-title">
+        <header class="block__head">
+          <div>
+            <h2 id="ind-title" class="block__title">Site inductions</h2>
+            <p class="block__sub">
+              Every contractor and visitor completes the site-specific induction on arrival. Scan
+              the QR poster at the gate or open the form below.
+            </p>
           </div>
-        </div>
+        </header>
+
+        <div class="grid grid--inductions" id="ind-grid"></div>
       </section>
 
-      <!-- Walk-Rounds -->
-      <section id="walkrounds" class="section section--tinted">
-        <div class="container">
-          <header class="section__head">
-            <div>
-              <span class="section__kicker">04 — Inspections</span>
-              <h2 class="section__title">Walk-Round & Inspection Forms</h2>
-              <p class="section__sub">Daily and weekly checklists used by supervisors to verify safe conditions on site.</p>
-            </div>
-          </header>
-          <div class="grid grid--cards" data-filterable>
-            <article class="card">
-              <div class="card__head"><span class="badge badge--amber">Weekly</span><span class="badge">Form</span></div>
-              <h3>Workplace Safety Walk-Around</h3>
-              <p>General workplace inspection covering housekeeping, PPE, signage and access.</p>
-              <a class="link" href="https://docs.google.com/forms/d/1DcXrHHv-fnTKRAMuCHwRfwiiF-ooqbebtG5pJ0ebeGk/edit" target="_blank" rel="noopener">Open form ↗</a>
-            </article>
-            <article class="card">
-              <div class="card__head"><span class="badge badge--amber">Weekly</span><span class="badge">Transport</span></div>
-              <h3>Transport Yard H&S Walk-Round</h3>
-              <p>Yard-specific inspection for vehicle movements, washdown and pedestrian routes.</p>
-              <a class="link" href="https://docs.google.com/forms/d/1qD1FHg6_srCMQnHFocvagSfHoJaWmU5M1bccdeDFSNA/edit" target="_blank" rel="noopener">Open form ↗</a>
-            </article>
-            <article class="card">
-              <div class="card__head"><span class="badge badge--amber">Weekly</span><span class="badge">Checklist</span></div>
-              <h3>Weekly Safety Walk-Around Checklist</h3>
-              <p>Quick checklist version of the walk-around for supervisor sign-off.</p>
-              <a class="link" href="https://docs.google.com/forms/d/1vzYba-h5aCEtPUxR8qq80ukYchvre94NqOaH38LmVzA/edit" target="_blank" rel="noopener">Open form ↗</a>
-            </article>
-            <article class="card">
-              <div class="card__head"><span class="badge">Plant</span><span class="badge">Form</span></div>
-              <h3>Asphalt Plant Walk-Round Inspection</h3>
-              <p>Inspection routine specific to the asphalt plant.</p>
-              <a class="link" href="https://docs.google.com/forms/d/1Zdb55_X_12yxuxX6-BEnok881esX2yti87WYh6ZqvAE/edit" target="_blank" rel="noopener">Open form ↗</a>
-            </article>
-          </div>
+      <section class="block block--footer-note">
+        <div class="footnote">
+          <p>
+            <strong>Source documents.</strong> Content on this page mirrors the master files held in
+            the OneDrive folder <em>Fox Group Quarries</em> (Tong Quarry Risk Assessments, Tong
+            Quarry Safe System of Works, and the four site-specific induction QR sheets). Update the
+            master files and FoxSafe will be refreshed from the same source.
+          </p>
         </div>
       </section>
-
-      <!-- Guidance / SSoW -->
-      <section id="guidance" class="section">
-        <div class="container">
-          <header class="section__head">
-            <div>
-              <span class="section__kicker">05 — Reference</span>
-              <h2 class="section__title">Guidance, SSoWs & Method Statements</h2>
-              <p class="section__sub">Stand-alone procedures covering plant, vehicles and sampling activity.</p>
-            </div>
-          </header>
-          <div class="grid grid--cards" data-filterable>
-            <article class="card">
-              <div class="card__head"><span class="badge badge--navy">G016</span><span class="badge">PDF / DOCX</span></div>
-              <h3>Stockpile Safety — Plant & Personnel</h3>
-              <p>Safe practices around stockpiles, exclusion zones and plant interaction.</p>
-              <a class="link" href="https://drive.google.com/file/d/1GFS279uQS-Jrr-bX9j5v9gQVhljFoV8c/view" target="_blank" rel="noopener">Open PDF ↗</a>
-            </article>
-            <article class="card">
-              <div class="card__head"><span class="badge badge--navy">G019</span><span class="badge">PDF / DOCX</span></div>
-              <h3>Safety When Taking Test Samples</h3>
-              <p>Procedure for sampling aggregates and asphalt safely on live sites.</p>
-              <a class="link" href="https://drive.google.com/file/d/1pttNo0AOOMD_4d3h3h3Wa1Brg2emuhHE/view" target="_blank" rel="noopener">Open PDF ↗</a>
-            </article>
-            <article class="card">
-              <div class="card__head"><span class="badge badge--navy">T006</span><span class="badge">PDF / DOCX</span></div>
-              <h3>Driving in Fox Group Yards</h3>
-              <p>Speed limits, one-way routes, pedestrian segregation and reversing controls.</p>
-              <a class="link" href="https://drive.google.com/file/d/1xqq31N8ItOzpor8llKRe6aicVSIqQQdY/view" target="_blank" rel="noopener">Open PDF ↗</a>
-            </article>
-            <article class="card">
-              <div class="card__head"><span class="badge badge--navy">CRH28</span><span class="badge">Method statement</span></div>
-              <h3>Padfoot Shells on SP Rollers</h3>
-              <p>Fitting and removal procedure for padfoot shells including full method statement.</p>
-              <a class="link" href="https://drive.google.com/file/d/1CZKo0Y2i9fjoDEP-RXXlCK3ZBbbo2UiK/view" target="_blank" rel="noopener">Open PDF ↗</a>
-            </article>
-            <article class="card">
-              <div class="card__head"><span class="badge badge--navy">SSoW-058</span><span class="badge">PDF / DOCX</span></div>
-              <h3>Use of RORO Wagon</h3>
-              <p>Safe System of Work for roll-on roll-off wagon operations.</p>
-              <a class="link" href="https://drive.google.com/file/d/1UA4nSG06sEZS9vru6MRcZ9iTNgxZmz4s/view" target="_blank" rel="noopener">Open PDF ↗</a>
-            </article>
-            <article class="card">
-              <div class="card__head"><span class="badge badge--navy">J001 / P001</span><span class="badge">DOCX</span></div>
-              <h3>360 Excavator</h3>
-              <p>Job and plant-specific risk assessments for the 360 excavator.</p>
-              <a class="link" href="https://docs.google.com/document/d/1MZwzy1sJYh_Ldh1ewmKqWpvPL5O_qet2/edit" target="_blank" rel="noopener">J001 ↗</a>
-              <a class="link link--muted" href="https://docs.google.com/document/d/10bkwOeCR7APKddXRwUxgSbdug8-IbdSN/edit" target="_blank" rel="noopener">P001 ↗</a>
-            </article>
-            <article class="card">
-              <div class="card__head"><span class="badge">NVQ</span><span class="badge">Unit</span></div>
-              <h3>Unit J/616/9532 — H&S Communication Systems</h3>
-              <p>NVQ unit on developing and implementing H&S communication systems.</p>
-              <a class="link" href="https://drive.google.com/file/d/1AjeLDPz3Usy2YGRiFJDdRPnUYhDF6gMJ/view" target="_blank" rel="noopener">Open PDF ↗</a>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- Logs -->
-      <section id="logs" class="section section--tinted">
-        <div class="container">
-          <header class="section__head">
-            <div>
-              <span class="section__kicker">06 — Records</span>
-              <h2 class="section__title">Logs & Compliance Registers</h2>
-              <p class="section__sub">Live sheets tracking inductions, sign-offs and form responses.</p>
-            </div>
-          </header>
-          <div class="grid grid--cards" data-filterable>
-            <article class="card">
-              <div class="card__head"><span class="badge badge--amber">Log</span><span class="badge">Sheet</span></div>
-              <h3>Fox Group Induction Log</h3>
-              <p>Master record of personnel who have completed site inductions.</p>
-              <a class="link" href="https://docs.google.com/spreadsheets/d/1peV_g1gB0-4SLEe15Af2eml4iTT70mAxyxcWGFlWAyI/edit" target="_blank" rel="noopener">Open sheet ↗</a>
-            </article>
-            <article class="card">
-              <div class="card__head"><span class="badge badge--amber">Register</span><span class="badge">Sheet</span></div>
-              <h3>Wagon Fitters Compliance Register</h3>
-              <p>Sign-off tracker for the Wagon Fitters Handbook.</p>
-              <a class="link" href="https://docs.google.com/spreadsheets/d/1ZQY3iTmTgP8v-CuM7XH3AL_aJja5-bw1x2Og1jL1i04/edit" target="_blank" rel="noopener">Open sheet ↗</a>
-            </article>
-            <article class="card">
-              <div class="card__head"><span class="badge">Responses</span><span class="badge">Sheet</span></div>
-              <h3>Asphalt Plant Sandham — Responses</h3>
-              <p>Collected responses from the Sandham asphalt plant induction.</p>
-              <a class="link" href="https://docs.google.com/spreadsheets/d/1REFpsc-uVqpL0JbC7G42WLemOjmqftZdbsMSIBGvMmM/edit" target="_blank" rel="noopener">Open sheet ↗</a>
-            </article>
-            <article class="card">
-              <div class="card__head"><span class="badge">Responses</span><span class="badge">Sheet</span></div>
-              <h3>Linney Lane Induction — Responses</h3>
-              <p>Collected responses from Linney Lane site inductions.</p>
-              <a class="link" href="https://docs.google.com/spreadsheets/d/1-sbJ2Fa_jHHRsPcaOVMiYocWbBgH-7mLZwwwB_hEeT0/edit" target="_blank" rel="noopener">Open sheet ↗</a>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- Footer -->
-      <footer class="footer">
-        <div class="container footer__inner">
-          <div class="footer__brand">
-            <strong>FoxSafe</strong>
-            <span>Fox Group · Health & Safety Team</span>
-          </div>
-          <div class="footer__meta">
-            <span>Handbook FG1.0 · January 2025</span>
-            <span>Prepared by Derick Bibby · Reviewed by Lee Hardy</span>
-          </div>
-          <div class="footer__note">
-            <span>This dashboard links to documents stored in Google Drive. Access is governed by existing Fox Group permissions.</span>
-          </div>
-        </div>
-      </footer>
     </main>
+
+    <footer class="app-footer">
+      <div class="app-footer__inner">
+        <span class="app-footer__brand">FoxSafe · Fox Group Quarries</span>
+        <span class="app-footer__meta">
+          Built for the Fox Group safety office, Warrington · For internal use
+        </span>
+      </div>
+    </footer>
 
     <script src="app.js"></script>
   </body>

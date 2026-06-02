@@ -1,205 +1,294 @@
-/* FoxSafe Dashboard — interactive layer */
-(() => {
-  "use strict";
+/* ============================================================
+   FoxSafe Dashboard — Fox Group Quarries
+   Data sourced from the OneDrive folder "Fox Group Quarries"
+   ============================================================ */
 
-  /* -------------------------------------------------------
-   * 1. Theme toggle (dark default — Fox Group navy feel)
-   * ----------------------------------------------------- */
-  const root = document.documentElement;
-  let currentTheme = "dark"; // sandbox blocks localStorage, keep in-memory
-  root.setAttribute("data-theme", currentTheme);
+/* ---------- Theme toggle ---------- */
+const themeToggle = document.getElementById('theme-toggle');
+const stored = localStorage.getItem('foxsafe-theme');
+if (stored === 'dark') document.documentElement.dataset.theme = 'dark';
+themeToggle?.addEventListener('click', () => {
+  const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+  document.documentElement.dataset.theme = next;
+  localStorage.setItem('foxsafe-theme', next);
+});
 
-  const sun = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>';
-  const moon = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>';
-
-  const themeBtn = document.querySelector("[data-theme-toggle]");
-  const paintThemeBtn = () => {
-    if (!themeBtn) return;
-    themeBtn.innerHTML = currentTheme === "dark" ? sun : moon;
-    themeBtn.setAttribute("aria-pressed", currentTheme === "light");
-    themeBtn.title = currentTheme === "dark" ? "Switch to light mode" : "Switch to dark mode";
-  };
-  paintThemeBtn();
-  themeBtn?.addEventListener("click", () => {
-    currentTheme = currentTheme === "dark" ? "light" : "dark";
-    root.setAttribute("data-theme", currentTheme);
-    paintThemeBtn();
+/* ---------- Clock ---------- */
+function updateClock() {
+  const now = new Date();
+  const time = now.toLocaleTimeString('en-GB', {
+    hour: '2-digit',
+    minute: '2-digit',
   });
-
-  /* -------------------------------------------------------
-   * 2. Clock — "Tue 2 Jun · 15:39 BST"
-   * ----------------------------------------------------- */
-  const nowEl = document.getElementById("now");
-  const fmtNow = () => {
-    if (!nowEl) return;
-    const d = new Date();
-    const dayName = d.toLocaleDateString("en-GB", { weekday: "short" });
-    const day = d.getDate();
-    const month = d.toLocaleDateString("en-GB", { month: "short" });
-    const hh = String(d.getHours()).padStart(2, "0");
-    const mm = String(d.getMinutes()).padStart(2, "0");
-    // Try to derive a short timezone abbreviation
-    let tz = "";
-    try {
-      const parts = new Intl.DateTimeFormat("en-GB", { timeZoneName: "short" }).formatToParts(d);
-      tz = parts.find(p => p.type === "timeZoneName")?.value || "";
-    } catch (_) {}
-    nowEl.textContent = `${dayName} ${day} ${month} · ${hh}:${mm}${tz ? " " + tz : ""}`;
-  };
-  fmtNow();
-  setInterval(fmtNow, 30 * 1000);
-
-  /* -------------------------------------------------------
-   * 3. Risk-Assessment tiles (WF001 – WF041)
-   * ----------------------------------------------------- */
-  // band: low | mod | rev | act | stop
-  const RA = [
-    ["WF001", "Abrasive Wheels", "rev"],
-    ["WF002", "Compressed Gas Cylinders", "act"],
-    ["WF003", "Electrical Welding", "rev"],
-    ["WF004", "Electricity", "act"],
-    ["WF005", "Hot Works", "act"],
-    ["WF006", "Lifting Operations", "act"],
-    ["WF007", "Dust", "rev"],
-    ["WF008", "Manual Handling", "rev"],
-    ["WF009", "Power Tools", "rev"],
-    ["WF010", "Use of Vehicle Pit", "act"],
-    ["WF011", "Vehicle & Plant Movements", "act"],
-    ["WF012", "Refuelling", "rev"],
-    ["WF013", "Working at Height", "act"],
-    ["WF014", "Noise", "mod"],
-    ["WF015", "Vibration", "mod"],
-    ["WF016", "PPE", "low"],
-    ["WF017", "Slips, Trips & Falls", "rev"],
-    ["WF018", "Use of Washdown", "mod"],
-    ["WF019", "Working Under Vehicles", "act"],
-    ["WF020", "Batteries", "rev"],
-    ["WF021", "Electric Vehicles", "rev"],
-    ["WF022", "Vehicle Brakes", "rev"],
-    ["WF023", "Cooling Systems", "rev"],
-    ["WF024", "Tyre Maintenance", "act"],
-    ["WF025", "HGV Workshop Tyre Storage", "mod"],
-    ["WF026", "General Jacking & Blocking", "act"],
-    ["WF027", "Hoses", "mod"],
-    ["WF028", "Sweeper Vehicle R&M", "rev"],
-    ["WF029", "Enter / Exit Wagons", "mod"],
-    ["WF030", "Driving in Fox Group Yards", "rev"],
-    ["WF031", "Working Under Propped Body", "act"],
-    ["WF032", "Forklift Truck Operations", "act"],
-    ["WF033", "Vehicle Lift Table", "act"],
-    ["WF034", "Industrial Radial Arm Drill", "rev"],
-    ["WF035", "Gantry Crane", "act"],
-    ["WF036", "Podium Platforms", "rev"],
-    ["WF037", "Pillar Drill", "rev"],
-    ["WF038", "Safe Use of Harnesses", "act"],
-    ["WF039", "Emergency Response", "rev"],
-    ["WF040", "Spill Response", "mod"],
-    ["WF041", "First Aid", "low"],
-  ];
-
-  const BAND = {
-    low:  { color: "#3aa055", label: "Low" },
-    mod:  { color: "#2f76b8", label: "Moderate" },
-    rev:  { color: "#e7b522", label: "Review" },
-    act:  { color: "#d44b2a", label: "Action" },
-    stop: { color: "#0d1d4d", label: "Stop" },
-  };
-
-  const HANDBOOK_URL = "https://drive.google.com/file/d/1cHh1Ek5ZJjZul7qaGgoFHycaNRWAbhd7/view";
-  const grid = document.getElementById("raGrid");
-  if (grid) {
-    const frag = document.createDocumentFragment();
-    RA.forEach(([code, title, band]) => {
-      const b = BAND[band] || BAND.rev;
-      const a = document.createElement("a");
-      a.className = "ra-tile";
-      a.href = HANDBOOK_URL;
-      a.target = "_blank";
-      a.rel = "noopener";
-      a.setAttribute("data-search", `${code} ${title} ${b.label}`.toLowerCase());
-      a.setAttribute("aria-label", `${code} ${title} — risk band ${b.label}`);
-      a.innerHTML = `
-        <span class="ra-tile__risk" style="background:${b.color}" title="${b.label}"></span>
-        <span class="ra-tile__body">
-          <span class="ra-tile__code">${code}</span>
-          <span class="ra-tile__title">${title}</span>
-        </span>
-        <span class="ra-tile__band">${b.label}</span>
-      `;
-      frag.appendChild(a);
-    });
-    grid.appendChild(frag);
-  }
-
-  /* -------------------------------------------------------
-   * 4. Search filter across all [data-filterable] sections
-   * ----------------------------------------------------- */
-  const q = document.getElementById("q");
-  const qClear = document.getElementById("qClear");
-  const containers = Array.from(document.querySelectorAll("[data-filterable]"));
-
-  // For non-RA containers we tag each direct child with a derived data-search.
-  containers.forEach(c => {
-    Array.from(c.children).forEach(child => {
-      if (!child.hasAttribute("data-search")) {
-        child.setAttribute("data-search", (child.textContent || "").replace(/\s+/g, " ").trim().toLowerCase());
-      }
-    });
+  const date = now.toLocaleDateString('en-GB', {
+    weekday: 'short',
+    day: '2-digit',
+    month: 'short',
   });
+  const t = document.getElementById('clock-time');
+  const d = document.getElementById('clock-date');
+  if (t) t.textContent = time;
+  if (d) d.textContent = date;
+}
+updateClock();
+setInterval(updateClock, 30 * 1000);
 
-  const applyFilter = (term) => {
-    const t = term.trim().toLowerCase();
-    const isEmpty = t.length === 0;
-    containers.forEach(c => {
-      let visible = 0;
-      Array.from(c.children).forEach(child => {
-        const hay = child.getAttribute("data-search") || "";
-        const match = isEmpty || hay.includes(t);
-        child.classList.toggle("is-hidden", !match);
-        if (match) visible++;
+/* ============================================================
+   DATA — Fox Group Quarries
+   ============================================================ */
+
+/* ---------- Quarry sites ---------- */
+const sites = [
+  {
+    id: 'tong',
+    name: 'Tong Quarry',
+    location: 'Tong, West Yorkshire',
+    tag: 'Full register',
+    accent: 'navy',
+    induction: 'https://docs.google.com/forms/d/1L3oJSCpc3rk98vkRWTtuqEvGGEN-tgccMxJJDDaTSyA/viewform',
+    docs: [
+      { label: 'Risk assessments (PDF)', href: 'docs/Tong-Quarry-Risk-Assessments.pdf' },
+      { label: 'Safe system of works (PDF)', href: 'docs/Tong-Quarry-Safe-System-of-Works.pdf' },
+      { label: 'Induction sheet (DOCX)', href: 'docs/Tong-Quarry-Induction.docx' },
+    ],
+  },
+  {
+    id: 'ellel',
+    name: 'Ellel Crag Quarry',
+    location: 'Ellel, Lancashire',
+    tag: 'Induction live',
+    accent: 'amber',
+    induction: 'https://docs.google.com/forms/d/1dJ7p06bKG-Jfy8ELKhhFi62ylU1HRssV0GfCmx2DP2M/viewform',
+    docs: [{ label: 'Induction sheet (DOCX)', href: 'docs/Ellel-Crag-Quarry-Induction.docx' }],
+  },
+  {
+    id: 'lydiate',
+    name: 'Lydiate Lane Quarry',
+    location: 'Lydiate Lane, Lancashire',
+    tag: 'Induction live',
+    accent: 'amber',
+    induction: 'https://docs.google.com/forms/d/12l9MSv4qyMev74lSeiH3Lgmqt4hUXgs2-D1zaUgdxI4/viewform',
+    docs: [{ label: 'Induction sheet (DOCX)', href: 'docs/Lydiate-Lane-Quarry-Induction.docx' }],
+  },
+  {
+    id: 'bradleys',
+    name: "Bradley's Sandpit Quarry",
+    location: "Bradley's Sandpit",
+    tag: 'Induction live',
+    accent: 'lime',
+    induction: 'https://docs.google.com/forms/d/1tHtLuZOtqh1YnS6wSHUu0W6l8nOZRDyDI8WMnuBlJH8/viewform',
+    docs: [{ label: 'Induction sheet (DOCX)', href: 'docs/Bradleys-Sandpit-Quarry-Induction.docx' }],
+  },
+];
+
+/* ---------- Risk assessments (Tong Quarry register) ---------- */
+const riskAssessments = {
+  Plant: [
+    { code: 'P001', title: 'Operating 360 Excavator' },
+    { code: 'P002', title: 'Operating Dozer' },
+    { code: 'P003', title: 'Operating Forward Tipping Dumper' },
+    { code: 'P003A', title: 'Operating Tipping Dumper' },
+    { code: 'P004', title: 'Operating Articulated Dump Truck (ADT)' },
+    { code: 'P005', title: 'Operating Roller' },
+    { code: 'P006', title: 'Operating Tractor' },
+    { code: 'P007', title: 'Operating Crusher' },
+    { code: 'P008', title: 'Operating Loading Shovel' },
+    { code: 'P009', title: 'Operating Road Sweeper' },
+    { code: 'P010', title: 'Towable Water Bowser' },
+    { code: 'P011', title: 'Towable Fuel Bowser' },
+    { code: 'P019', title: 'Operating Wash Plant' },
+    { code: 'P020', title: 'Operating Screener' },
+  ],
+  Transport: [
+    { code: 'T001', title: 'Loading Tipper Wagon' },
+    { code: 'T002', title: 'Loading Forward Tipping Dumper' },
+    { code: 'T003', title: 'Loading Articulated Dump Trucks (ADT)' },
+    { code: 'T004', title: 'Driving Tipper Wagon (on site)' },
+  ],
+};
+
+/* ---------- Safe Systems of Work (Tong Quarry set) ---------- */
+const ssow = [
+  { code: 'SSoW-008', title: 'The Use of Ride on Roller' },
+  { code: 'SSoW-009', title: 'The Use of Mobile Crusher' },
+  { code: 'SSoW-010', title: 'Repair of Vehicle Tyres' },
+  { code: 'SSoW-011', title: 'Recovery of Trapped Wagons' },
+  { code: 'SSoW-012', title: 'The Use of Screener' },
+  { code: 'SSoW-014', title: 'Securing Plant, Machinery & Attachments prior to Transportation' },
+  { code: 'SSoW-015', title: 'Tipping Loads' },
+  { code: 'SSoW-016', title: 'Loading Tipper Wagons' },
+  { code: 'SSoW-017', title: 'Loading & Unloading of Plant & Machinery' },
+  { code: 'SSoW-020', title: 'The Use of 360 Excavators' },
+  { code: 'SSoW-023', title: 'The Use of Excavators in Lifting Operations' },
+  { code: 'SSoW-029', title: 'The Use of Loading Shovels' },
+  { code: 'SSoW-047', title: 'The Use of Vehicles on Construction Sites' },
+  { code: 'SSoW-051', title: 'Managing Dust in Construction' },
+  { code: 'SSoW-057', title: 'Casting Over Quarry Face' },
+  { code: 'SSoW-063', title: 'Working in a Quarry' },
+];
+
+/* ============================================================
+   RENDERING
+   ============================================================ */
+
+function esc(str) {
+  return String(str).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+
+/* ---------- Site tiles ---------- */
+function renderSites() {
+  const grid = document.getElementById('site-grid');
+  if (!grid) return;
+  grid.innerHTML = sites
+    .map((s) => {
+      const docsHtml = s.docs
+        .map(
+          (d) =>
+            `<li><a class="doc-link" href="${esc(d.href)}" target="_blank" rel="noopener">
+               <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>
+               ${esc(d.label)}
+             </a></li>`,
+        )
+        .join('');
+      return `
+        <article class="site-card site-card--${esc(s.accent)}" role="listitem" data-search="${esc((s.name + ' ' + s.location).toLowerCase())}">
+          <header class="site-card__head">
+            <div>
+              <h3 class="site-card__name">${esc(s.name)}</h3>
+              <p class="site-card__loc">${esc(s.location)}</p>
+            </div>
+            <span class="site-card__tag">${esc(s.tag)}</span>
+          </header>
+          <ul class="site-card__docs">${docsHtml}</ul>
+          <footer class="site-card__foot">
+            <a class="btn btn--primary btn--sm" href="${esc(s.induction)}" target="_blank" rel="noopener">
+              Open site induction
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
+            </a>
+          </footer>
+        </article>`;
+    })
+    .join('');
+}
+
+/* ---------- Risk assessment groups ---------- */
+function renderRA() {
+  const wrap = document.getElementById('ra-groups');
+  if (!wrap) return;
+  const groups = Object.entries(riskAssessments)
+    .map(([heading, items]) => {
+      const cards = items
+        .map(
+          (r) => `
+          <article class="ra-card" data-search="${esc((r.code + ' ' + r.title).toLowerCase())}">
+            <span class="ra-card__code">${esc(r.code)}</span>
+            <h4 class="ra-card__title">${esc(r.title)}</h4>
+          </article>`,
+        )
+        .join('');
+      return `
+        <section class="ra-group" data-group="${esc(heading.toLowerCase())}">
+          <h3 class="ra-group__title">
+            ${esc(heading)}
+            <span class="ra-group__count">${items.length}</span>
+          </h3>
+          <div class="grid grid--ra">${cards}</div>
+        </section>`;
+    })
+    .join('');
+  wrap.innerHTML = groups;
+}
+
+/* ---------- SSoW tiles ---------- */
+function renderSSoW() {
+  const grid = document.getElementById('ssow-grid');
+  if (!grid) return;
+  grid.innerHTML = ssow
+    .map(
+      (s) => `
+      <article class="ssow-card" data-search="${esc((s.code + ' ' + s.title).toLowerCase())}">
+        <span class="ssow-card__code">${esc(s.code)}</span>
+        <h4 class="ssow-card__title">${esc(s.title)}</h4>
+      </article>`,
+    )
+    .join('');
+}
+
+/* ---------- Induction tiles ---------- */
+function renderInductions() {
+  const grid = document.getElementById('ind-grid');
+  if (!grid) return;
+  grid.innerHTML = sites
+    .map(
+      (s) => `
+      <article class="ind-card ind-card--${esc(s.accent)}">
+        <div class="ind-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7" rx="1"/>
+            <rect x="14" y="3" width="7" height="7" rx="1"/>
+            <rect x="3" y="14" width="7" height="7" rx="1"/>
+            <path d="M14 14h3v3h-3zM17 17h4v4h-4zM14 20h3"/>
+          </svg>
+        </div>
+        <div class="ind-card__body">
+          <h4 class="ind-card__name">${esc(s.name)}</h4>
+          <p class="ind-card__hint">Scan the QR at the gate or open the form below.</p>
+          <a class="btn btn--ghost btn--sm" href="${esc(s.induction)}" target="_blank" rel="noopener">
+            Open induction form
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
+          </a>
+        </div>
+      </article>`,
+    )
+    .join('');
+}
+
+/* ============================================================
+   SEARCH FILTERS
+   ============================================================ */
+function wireFilter(inputId, itemSelector, groupSelector) {
+  const input = document.getElementById(inputId);
+  if (!input) return;
+  input.addEventListener('input', () => {
+    const q = input.value.trim().toLowerCase();
+    document.querySelectorAll(itemSelector).forEach((el) => {
+      const hay = el.dataset.search || el.textContent.toLowerCase();
+      el.style.display = !q || hay.includes(q) ? '' : 'none';
+    });
+    if (groupSelector) {
+      document.querySelectorAll(groupSelector).forEach((group) => {
+        const visible = group.querySelectorAll(`${itemSelector}:not([style*="display: none"])`);
+        group.style.display = visible.length ? '' : 'none';
       });
-      // Surface an empty-state if a whole section has no matches
-      let empty = c.querySelector(":scope > .filter-empty");
-      if (visible === 0 && !isEmpty) {
-        if (!empty) {
-          empty = document.createElement("p");
-          empty.className = "filter-empty";
-          empty.textContent = "No matches in this section.";
-          c.appendChild(empty);
-        }
-      } else if (empty) {
-        empty.remove();
+    }
+  });
+}
+
+/* ============================================================
+   INIT
+   ============================================================ */
+renderSites();
+renderRA();
+renderSSoW();
+renderInductions();
+
+wireFilter('site-search', '.site-card');
+wireFilter('ra-search', '.ra-card', '.ra-group');
+wireFilter('ssow-search', '.ssow-card');
+
+/* Active nav-link on scroll */
+const sections = ['sites', 'ra', 'ssow', 'inductions']
+  .map((id) => document.getElementById(id))
+  .filter(Boolean);
+const navLinks = document.querySelectorAll('.app-nav__link');
+const io = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        navLinks.forEach((l) => l.classList.toggle('is-active', l.getAttribute('href') === '#' + e.target.id));
       }
     });
-    if (qClear) qClear.hidden = isEmpty;
-  };
-
-  if (q) {
-    q.addEventListener("input", e => applyFilter(e.target.value));
-    q.addEventListener("keydown", e => {
-      if (e.key === "Escape") { q.value = ""; applyFilter(""); q.blur(); }
-    });
-  }
-  if (qClear) {
-    qClear.hidden = true;
-    qClear.addEventListener("click", () => {
-      if (q) { q.value = ""; q.focus(); }
-      applyFilter("");
-    });
-  }
-
-  /* -------------------------------------------------------
-   * 5. Smooth-scroll for in-page nav (respects reduced motion)
-   * ----------------------------------------------------- */
-  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener("click", e => {
-      const id = a.getAttribute("href");
-      if (!id || id === "#" || id.length < 2) return;
-      const target = document.querySelector(id);
-      if (!target) return;
-      e.preventDefault();
-      target.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
-    });
-  });
-})();
+  },
+  { rootMargin: '-40% 0px -55% 0px' },
+);
+sections.forEach((s) => io.observe(s));
