@@ -5,12 +5,9 @@
 
 /* ---------- Theme toggle ---------- */
 const themeToggle = document.getElementById('theme-toggle');
-const stored = localStorage.getItem('foxsafe-theme');
-if (stored === 'dark') document.documentElement.dataset.theme = 'dark';
 themeToggle?.addEventListener('click', () => {
   const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
   document.documentElement.dataset.theme = next;
-  localStorage.setItem('foxsafe-theme', next);
 });
 
 /* ---------- Clock ---------- */
