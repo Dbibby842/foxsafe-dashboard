@@ -45,6 +45,7 @@
           <a class="app-nav__link is-active" href="#sites">Sites</a>
           <a class="app-nav__link" href="#ra">Risk assessments</a>
           <a class="app-nav__link" href="#ssow">Safe systems of work</a>
+          <a class="app-nav__link" href="#permits">Permits &amp; checks</a>
           <a class="app-nav__link" href="#inductions">Inductions</a>
         </nav>
 
@@ -130,8 +131,8 @@
               <span class="stat__label">Safe systems of work</span>
             </div>
             <div class="stat">
-              <span class="stat__num">QR</span>
-              <span class="stat__label">Site induction per quarry</span>
+              <span class="stat__num">20</span>
+              <span class="stat__label">Permits, checks &amp; procedures</span>
             </div>
           </aside>
         </div>
@@ -216,6 +217,33 @@
         </header>
 
         <div class="grid grid--ssow" id="ssow-grid"></div>
+      </section>
+
+      <!-- ============================================================
+           PERMITS, CHECKS & PROCEDURES
+           ============================================================ -->
+      <section class="block" id="permits" aria-labelledby="permits-title">
+        <header class="block__head">
+          <div>
+            <h2 id="permits-title" class="block__title">Permits, checks &amp; procedures</h2>
+            <p class="block__sub">
+              Permits-to-work, daily/weekly plant check sheets, incident reporting forms and site
+              rules. Print, fill in, or open on a phone at the gate.
+            </p>
+          </div>
+          <div class="filter">
+            <label class="filter__label" for="prm-search">Filter documents</label>
+            <input
+              id="prm-search"
+              type="search"
+              class="filter__input"
+              placeholder="Search permit, check sheet, near miss…"
+              autocomplete="off"
+            />
+          </div>
+        </header>
+
+        <div class="ra-groups" id="prm-groups"></div>
       </section>
 
       <!-- ============================================================

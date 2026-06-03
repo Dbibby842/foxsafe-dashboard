@@ -124,6 +124,38 @@ const ssow = [
   { code: 'SSoW-063', title: 'Working in a Quarry', doc: 'docs/SSoW-063.pdf' },
 ];
 
+/* ---------- Permits, Checks & Procedures ---------- */
+const permits = {
+  'Permits to Work': [
+    { code: 'PTW', title: 'General Permit to Work', doc: 'docs/PTW-General-Permit-to-Work.pdf' },
+    { code: 'PTW-14', title: 'Working at Height Permit', doc: 'docs/PTW-Working-at-Height.pdf' },
+    { code: 'PTW-15', title: 'Hot Works Permit', doc: 'docs/PTW-Hot-Works.pdf' },
+    { code: 'PTW-16', title: 'Permit to Dig', doc: 'docs/PTW-Permit-to-Dig.pdf' },
+    { code: 'PTW-CS', title: 'Confined Space Permit', doc: 'docs/PTW-Confined-Space.pdf' },
+  ],
+  'Plant Check Sheets': [
+    { code: 'CHK', title: 'Crusher — Daily Check Sheet', doc: 'docs/CHK-Crusher-Daily.pdf' },
+    { code: 'CHK', title: 'Dozer — Check Sheet', doc: 'docs/CHK-Dozer.pdf' },
+    { code: 'CHK', title: 'Dumper — Weekly Check Sheet', doc: 'docs/CHK-Dumper-Weekly.pdf' },
+    { code: 'CHK', title: 'Excavator — Weekly Check Sheet', doc: 'docs/CHK-Excavator-Weekly.pdf' },
+    { code: 'CHK', title: 'Loading Shovel — Daily Check Sheet', doc: 'docs/CHK-Loading-Shovel-Daily.pdf' },
+    { code: 'CHK', title: 'Screener — Daily Check Sheet', doc: 'docs/CHK-Screener-Daily.pdf' },
+  ],
+  'Incident & Reporting': [
+    { code: 'INC', title: 'Accident & Near Miss Reporting Procedure (V6)', doc: 'docs/INC-Accident-Near-Miss-Procedure.pdf' },
+    { code: 'INC', title: 'Accident / Incident Reporting Flowchart', doc: 'docs/INC-Reporting-Flowchart.pdf' },
+    { code: 'INC', title: 'FoxSafe Near Miss Report Cover', doc: 'docs/INC-Near-Miss-Report-Cover.pdf' },
+  ],
+  'Rules & Procedures': [
+    { code: 'PRC', title: 'Daily Briefing (V2)', doc: 'docs/PRC-Daily-Briefing.pdf' },
+    { code: 'PRC', title: 'Surface Water Management Checklist', doc: 'docs/PRC-Surface-Water-Checklist.pdf' },
+    { code: 'PRC', title: 'General Conduct Rules', doc: 'docs/PRC-General-Conduct-Rules.pdf' },
+    { code: 'PRC', title: 'Vehicle Rules', doc: 'docs/PRC-Vehicle-Rules.pdf' },
+    { code: 'PRC', title: 'Spill Response Procedure', doc: 'docs/PRC-Spill-Response.pdf' },
+    { code: 'PRC', title: 'Safe Quarry — Lydiate Lane', doc: 'docs/PRC-Safe-Quarry-Lydiate-Lane.pdf' },
+  ],
+};
+
 /* ============================================================
    RENDERING
    ============================================================ */
@@ -178,6 +210,37 @@ function renderRA() {
         .map(
           (r) => `
           <a class="ra-card" href="${esc(r.doc)}" target="_blank" rel="noopener" data-search="${esc((r.code + ' ' + r.title).toLowerCase())}" aria-label="Open ${esc(r.code)} ${esc(r.title)}">
+            <span class="ra-card__code">${esc(r.code)}</span>
+            <h4 class="ra-card__title">${esc(r.title)}</h4>
+            <span class="card-doc-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>
+            </span>
+          </a>`,
+        )
+        .join('');
+      return `
+        <section class="ra-group" data-group="${esc(heading.toLowerCase())}">
+          <h3 class="ra-group__title">
+            ${esc(heading)}
+            <span class="ra-group__count">${items.length}</span>
+          </h3>
+          <div class="grid grid--ra">${cards}</div>
+        </section>`;
+    })
+    .join('');
+  wrap.innerHTML = groups;
+}
+
+/* ---------- Permits, Checks & Procedures groups ---------- */
+function renderPermits() {
+  const wrap = document.getElementById('prm-groups');
+  if (!wrap) return;
+  const groups = Object.entries(permits)
+    .map(([heading, items]) => {
+      const cards = items
+        .map(
+          (r) => `
+          <a class="ra-card" href="${esc(r.doc)}" target="_blank" rel="noopener" data-search="${esc((r.code + ' ' + r.title).toLowerCase())}" aria-label="Open ${esc(r.title)}">
             <span class="ra-card__code">${esc(r.code)}</span>
             <h4 class="ra-card__title">${esc(r.title)}</h4>
             <span class="card-doc-icon" aria-hidden="true">
@@ -273,14 +336,16 @@ function wireFilter(inputId, itemSelector, groupSelector) {
 renderSites();
 renderRA();
 renderSSoW();
+renderPermits();
 renderInductions();
 
 wireFilter('site-search', '.site-card');
-wireFilter('ra-search', '.ra-card', '.ra-group');
+wireFilter('ra-search', '#ra-groups .ra-card', '#ra-groups .ra-group');
 wireFilter('ssow-search', '.ssow-card');
+wireFilter('prm-search', '#prm-groups .ra-card', '#prm-groups .ra-group');
 
 /* Active nav-link on scroll */
-const sections = ['sites', 'ra', 'ssow', 'inductions']
+const sections = ['sites', 'ra', 'ssow', 'permits', 'inductions']
   .map((id) => document.getElementById(id))
   .filter(Boolean);
 const navLinks = document.querySelectorAll('.app-nav__link');
