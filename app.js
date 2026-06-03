@@ -158,8 +158,8 @@ const permits = {
     { code: 'INC', title: 'Accident & Near Miss Reporting Procedure (V6)', doc: 'docs/INC-Accident-Near-Miss-Procedure.pdf' },
     { code: 'INC', title: 'Accident / Incident Reporting Flowchart', doc: 'docs/INC-Reporting-Flowchart.pdf' },
     { code: 'INC', title: 'FoxSafe Near Miss Report Cover', doc: 'docs/INC-Near-Miss-Report-Cover.pdf' },
-    { code: 'QR', title: 'Accident Report — QR Code Poster', doc: 'docs/INC-QR-Accident.pdf' },
-    { code: 'QR', title: 'Near Miss 2025 — QR Code Poster', doc: 'docs/INC-QR-Near-Miss-2025.pdf' },
+    { code: 'FORM', title: 'Accident Report Form (online)', doc: 'https://docs.google.com/forms/d/1BsH2HjnSzJb5k-JbbBRYr0VDPwfH5-vRsiHF07J3sCM/viewform' },
+    { code: 'FORM', title: 'Near Miss Report Form 2025 (online)', doc: 'https://docs.google.com/forms/d/1aXyo6o193Vb45RH32ywvIikrofgyuIdU9o9o52u85is/viewform' },
   ],
   'Rules & Procedures': [
     { code: 'PRC', title: 'Daily Briefing (V2)', doc: 'docs/PRC-Daily-Briefing.pdf' },
