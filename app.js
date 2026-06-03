@@ -76,6 +76,15 @@ const sites = [
     induction: 'https://docs.google.com/forms/d/1tHtLuZOtqh1YnS6wSHUu0W6l8nOZRDyDI8WMnuBlJH8/viewform',
     docs: [{ label: 'Induction sheet (DOCX)', href: 'docs/Bradleys-Sandpit-Quarry-Induction.docx' }],
   },
+  {
+    id: 'woods',
+    name: 'Woods Waste Landfill',
+    location: 'Woods Waste',
+    tag: 'Induction live',
+    accent: 'navy',
+    induction: 'https://docs.google.com/forms/d/1t9CIssftUjghLSKHpSeT-K4PmqpDUOWpm-GJqWiEQlM/viewform',
+    docs: [{ label: 'Induction sheet (DOCX)', href: 'docs/Woods-Waste-Induction.docx' }],
+  },
 ];
 
 /* ---------- Risk assessments (Tong Quarry register) ---------- */
@@ -85,7 +94,7 @@ const riskAssessments = {
     { code: 'P002', title: 'Operating Dozer', doc: 'docs/RA-P002.pdf' },
     { code: 'P003', title: 'Operating Forward Tipping Dumper', doc: 'docs/RA-P003.pdf' },
     { code: 'P003A', title: 'Operating Tipping Dumper', doc: 'docs/RA-P003A.pdf' },
-    { code: 'P004', title: 'Operating Articulated Dump Truck (ADT)', doc: 'docs/RA-P004.docx' },
+    { code: 'P004', title: 'Operating Articulated Dump Truck (ADT)', doc: 'docs/RA-P004.pdf' },
     { code: 'P005', title: 'Operating Roller', doc: 'docs/RA-P005.pdf' },
     { code: 'P006', title: 'Operating Tractor', doc: 'docs/RA-P006.pdf' },
     { code: 'P007', title: 'Operating Crusher', doc: 'docs/RA-P007.pdf' },
@@ -93,6 +102,8 @@ const riskAssessments = {
     { code: 'P009', title: 'Operating Road Sweeper', doc: 'docs/RA-P009.pdf' },
     { code: 'P010', title: 'Towable Water Bowser', doc: 'docs/RA-P010.pdf' },
     { code: 'P011', title: 'Towable Fuel Bowser', doc: 'docs/RA-P011.pdf' },
+    { code: 'P012', title: 'Static Fuel Bowser', doc: 'docs/RA-P012.pdf' },
+    { code: 'P014', title: 'Telehandler', doc: 'docs/RA-P014.pdf' },
     { code: 'P019', title: 'Operating Wash Plant', doc: 'docs/RA-P019.pdf' },
     { code: 'P020', title: 'Operating Screener', doc: 'docs/RA-P020.pdf' },
   ],
@@ -101,6 +112,8 @@ const riskAssessments = {
     { code: 'T002', title: 'Loading Forward Tipping Dumper', doc: 'docs/RA-T002.pdf' },
     { code: 'T003', title: 'Loading Articulated Dump Trucks (ADT)', doc: 'docs/RA-T003.pdf' },
     { code: 'T004', title: 'Driving Tipper Wagon (on site)', doc: 'docs/RA-T004.pdf' },
+    { code: 'T005', title: 'Entry & Exit from Wagons', doc: 'docs/RA-T005.pdf' },
+    { code: 'T006', title: 'Driving in Fox Group Yards', doc: 'docs/RA-T006.pdf' },
   ],
 };
 
@@ -145,6 +158,8 @@ const permits = {
     { code: 'INC', title: 'Accident & Near Miss Reporting Procedure (V6)', doc: 'docs/INC-Accident-Near-Miss-Procedure.pdf' },
     { code: 'INC', title: 'Accident / Incident Reporting Flowchart', doc: 'docs/INC-Reporting-Flowchart.pdf' },
     { code: 'INC', title: 'FoxSafe Near Miss Report Cover', doc: 'docs/INC-Near-Miss-Report-Cover.pdf' },
+    { code: 'QR', title: 'Accident Report — QR Code Poster', doc: 'docs/INC-QR-Accident.pdf' },
+    { code: 'QR', title: 'Near Miss 2025 — QR Code Poster', doc: 'docs/INC-QR-Near-Miss-2025.pdf' },
   ],
   'Rules & Procedures': [
     { code: 'PRC', title: 'Daily Briefing (V2)', doc: 'docs/PRC-Daily-Briefing.pdf' },
@@ -152,9 +167,17 @@ const permits = {
     { code: 'PRC', title: 'General Conduct Rules', doc: 'docs/PRC-General-Conduct-Rules.pdf' },
     { code: 'PRC', title: 'Vehicle Rules', doc: 'docs/PRC-Vehicle-Rules.pdf' },
     { code: 'PRC', title: 'Spill Response Procedure', doc: 'docs/PRC-Spill-Response.pdf' },
-    { code: 'PRC', title: 'Safe Quarry — Lydiate Lane', doc: 'docs/PRC-Safe-Quarry-Lydiate-Lane.pdf' },
+    { code: 'PRC', title: 'Safe Quarry (Master)', doc: 'docs/PRC-Safe-Quarry.pdf' },
   ],
 };
+
+/* ---------- Statutory Appointments — Reg 8(1)(d) ---------- */
+const reg8 = [
+  { code: 'REG 8', title: 'Tong Quarry — Supervisor Appointment', doc: 'docs/REG8-Tong-Quarry.pdf' },
+  { code: 'REG 8', title: 'Ellel Crag Quarry — Supervisor Appointment', doc: 'docs/REG8-Ellel-Crag.pdf' },
+  { code: 'REG 8', title: 'Lydiate Lane Quarry — Supervisor Appointment', doc: 'docs/REG8-Lydiate-Lane.pdf' },
+  { code: 'REG 8', title: 'Woods Waste Landfill — Supervisor Appointment', doc: 'docs/REG8-Woods-Waste.pdf' },
+];
 
 /* ============================================================
    RENDERING
@@ -262,6 +285,24 @@ function renderPermits() {
   wrap.innerHTML = groups;
 }
 
+/* ---------- Reg 8 Supervisor Appointments ---------- */
+function renderReg8() {
+  const grid = document.getElementById('reg8-grid');
+  if (!grid) return;
+  grid.innerHTML = reg8
+    .map(
+      (r) => `
+      <a class="ssow-card" href="${esc(r.doc)}" target="_blank" rel="noopener" data-search="${esc((r.code + ' ' + r.title).toLowerCase())}" aria-label="Open ${esc(r.title)}">
+        <span class="ssow-card__code">${esc(r.code)}</span>
+        <h4 class="ssow-card__title">${esc(r.title)}</h4>
+        <span class="card-doc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>
+        </span>
+      </a>`,
+    )
+    .join('');
+}
+
 /* ---------- SSoW tiles ---------- */
 function renderSSoW() {
   const grid = document.getElementById('ssow-grid');
@@ -337,15 +378,17 @@ renderSites();
 renderRA();
 renderSSoW();
 renderPermits();
+renderReg8();
 renderInductions();
 
 wireFilter('site-search', '.site-card');
 wireFilter('ra-search', '#ra-groups .ra-card', '#ra-groups .ra-group');
-wireFilter('ssow-search', '.ssow-card');
+wireFilter('ssow-search', '#ssow-grid .ssow-card');
 wireFilter('prm-search', '#prm-groups .ra-card', '#prm-groups .ra-group');
+wireFilter('reg8-search', '#reg8-grid .ssow-card');
 
 /* Active nav-link on scroll */
-const sections = ['sites', 'ra', 'ssow', 'permits', 'inductions']
+const sections = ['sites', 'ra', 'ssow', 'permits', 'reg8', 'inductions']
   .map((id) => document.getElementById(id))
   .filter(Boolean);
 const navLinks = document.querySelectorAll('.app-nav__link');

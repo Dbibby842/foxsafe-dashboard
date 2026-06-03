@@ -6,7 +6,7 @@
     <title>FoxSafe · Fox Group Quarries</title>
     <meta
       name="description"
-      content="Fox Group Quarries — site inductions, risk assessments and safe systems of work for Tong, Ellel Crag, Lydiate Lane and Bradley's Sandpit."
+      content="Fox Group Quarries — site inductions, risk assessments and safe systems of work for Tong, Ellel Crag, Lydiate Lane, Bradley's Sandpit and Woods Waste."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -46,6 +46,7 @@
           <a class="app-nav__link" href="#ra">Risk assessments</a>
           <a class="app-nav__link" href="#ssow">Safe systems of work</a>
           <a class="app-nav__link" href="#permits">Permits &amp; checks</a>
+          <a class="app-nav__link" href="#reg8">Reg 8 appointments</a>
           <a class="app-nav__link" href="#inductions">Inductions</a>
         </nav>
 
@@ -119,11 +120,11 @@
           </div>
           <aside class="hero__stats" aria-label="At a glance">
             <div class="stat">
-              <span class="stat__num">4</span>
+              <span class="stat__num">5</span>
               <span class="stat__label">Active quarry sites</span>
             </div>
             <div class="stat">
-              <span class="stat__num">18</span>
+              <span class="stat__num">22</span>
               <span class="stat__label">Risk assessments on file</span>
             </div>
             <div class="stat">
@@ -131,7 +132,7 @@
               <span class="stat__label">Safe systems of work</span>
             </div>
             <div class="stat">
-              <span class="stat__num">20</span>
+              <span class="stat__num">22</span>
               <span class="stat__label">Permits, checks &amp; procedures</span>
             </div>
           </aside>
@@ -244,6 +245,33 @@
         </header>
 
         <div class="ra-groups" id="prm-groups"></div>
+      </section>
+
+      <!-- ============================================================
+           REG 8(1)(D) SUPERVISOR APPOINTMENTS
+           ============================================================ -->
+      <section class="block" id="reg8" aria-labelledby="reg8-title">
+        <header class="block__head">
+          <div>
+            <h2 id="reg8-title" class="block__title">Statutory supervisor appointments</h2>
+            <p class="block__sub">
+              Signed appointments of the competent supervisor for each site, under regulation
+              8(1)(d) of the Quarries Regulations 1999.
+            </p>
+          </div>
+          <div class="filter">
+            <label class="filter__label" for="reg8-search">Filter sites</label>
+            <input
+              id="reg8-search"
+              type="search"
+              class="filter__input"
+              placeholder="Search Tong, Ellel, Lydiate, Woods Waste…"
+              autocomplete="off"
+            />
+          </div>
+        </header>
+
+        <div class="grid grid--ssow" id="reg8-grid"></div>
       </section>
 
       <!-- ============================================================
