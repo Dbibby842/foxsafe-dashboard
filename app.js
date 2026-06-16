@@ -158,6 +158,9 @@ const permits = {
     { code: 'PRC', title: 'Spill Response Procedure', doc: 'docs/PRC-Spill-Response.pdf' },
     { code: 'PRC', title: 'Safe Quarry (Master)', doc: 'docs/PRC-Safe-Quarry.pdf' },
   ],
+  'Environmental': [
+    { code: 'ENV', title: 'Dust Management Plan — Tong Quarry', doc: 'docs/Dust-Management-Plan-Tong-Quarry.pdf' },
+  ],
 };
 
 /* ---------- Statutory Appointments — Reg 8(1)(d) ---------- */
