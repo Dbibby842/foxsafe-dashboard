@@ -40,7 +40,7 @@ const sites = [
     id: 'tong',
     name: 'Tong Quarry',
     location: 'Tong, West Yorkshire',
-    tag: 'Full register',
+    tag: '',
     accent: 'navy',
     induction: 'https://docs.google.com/forms/d/1L3oJSCpc3rk98vkRWTtuqEvGGEN-tgccMxJJDDaTSyA/viewform',
     docs: [
@@ -211,7 +211,7 @@ function renderSites() {
               <h3 class="site-card__name">${esc(s.name)}</h3>
               <p class="site-card__loc">${esc(s.location)}</p>
             </div>
-            <span class="site-card__tag">${esc(s.tag)}</span>
+            ${s.tag ? `<span class="site-card__tag">${esc(s.tag)}</span>` : ''}
           </header>
           <ul class="site-card__docs">${docsHtml}</ul>
           <footer class="site-card__foot">
