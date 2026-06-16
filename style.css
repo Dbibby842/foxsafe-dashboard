@@ -967,3 +967,115 @@ textarea {
     scroll-behavior: auto;
   }
 }
+
+/* ============================================================
+   SIGN-OFF BANNERS — RA & SSoW prominent CTAs
+   ============================================================ */
+.signoff-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin: 0 0 var(--space-6) 0;
+  padding: var(--space-4) var(--space-5);
+  background: linear-gradient(135deg, var(--fox-amber) 0%, var(--fox-amber-2) 100%);
+  color: var(--fox-navy-deep);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(26, 35, 126, 0.12);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+
+.signoff-banner:hover,
+.signoff-banner:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  filter: brightness(1.03);
+  outline: none;
+}
+
+.signoff-banner:focus-visible {
+  outline: 3px solid var(--fox-navy);
+  outline-offset: 3px;
+}
+
+.signoff-banner__icon {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--fox-navy-deep);
+  box-shadow: inset 0 0 0 1px rgba(26, 35, 126, 0.12);
+}
+
+.signoff-banner__body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.signoff-banner__title {
+  font-family: 'Philosopher', 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  line-height: 1.25;
+  color: var(--fox-navy-deep);
+}
+
+.signoff-banner__sub {
+  font-size: 0.88rem;
+  line-height: 1.35;
+  color: rgba(17, 22, 43, 0.78);
+}
+
+.signoff-banner__cta {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.55rem 1rem;
+  background: var(--fox-navy);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 12px rgba(26, 35, 126, 0.25);
+  white-space: nowrap;
+}
+
+.signoff-banner:hover .signoff-banner__cta {
+  background: var(--color-primary-hover);
+}
+
+@media (max-width: 640px) {
+  .signoff-banner {
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+  .signoff-banner__body {
+    flex: 1 1 100%;
+    order: 2;
+  }
+  .signoff-banner__icon {
+    order: 1;
+    width: 38px;
+    height: 38px;
+  }
+  .signoff-banner__cta {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+  }
+  .signoff-banner__title {
+    font-size: 1rem;
+  }
+  .signoff-banner__sub {
+    font-size: 0.82rem;
+  }
+}
