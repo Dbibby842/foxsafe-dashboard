@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
@@ -25,19 +25,17 @@
 
     <header class="app-header">
       <div class="app-header__inner">
-        <a class="brand" href="#main" aria-label="FoxSafe home">
-          <span class="brand__mark" aria-hidden="true">
-            <svg viewBox="0 0 32 32" width="34" height="34" role="img" aria-label="FoxSafe">
-              <rect width="32" height="32" rx="7" fill="currentColor" />
-              <path
-                d="M9 22 V10 H21 V12.6 H12 V15.6 H19 V18.2 H12 V22 Z"
-                fill="var(--fox-amber)"
-              />
-            </svg>
-          </span>
+        <a class="brand" href="#main" aria-label="Fox Group home">
+          <img
+            class="brand__logo"
+            src="img/fox-group-logo.jpg"
+            alt="Fox Group"
+            width="180"
+            height="44"
+          />
           <span class="brand__text">
             <span class="brand__name">FoxSafe</span>
-            <span class="brand__sub">Fox Group Quarries</span>
+            <span class="brand__sub">Quarries</span>
           </span>
         </a>
 
@@ -47,7 +45,6 @@
           <a class="app-nav__link" href="#ssow">Safe systems of work</a>
           <a class="app-nav__link" href="#permits">Permits &amp; checks</a>
           <a class="app-nav__link" href="#reg8">Reg 8 appointments</a>
-          <a class="app-nav__link" href="#inductions">Inductions</a>
         </nav>
 
         <div class="app-header__controls">
@@ -272,23 +269,6 @@
         </header>
 
         <div class="grid grid--ssow" id="reg8-grid"></div>
-      </section>
-
-      <!-- ============================================================
-           INDUCTIONS
-           ============================================================ -->
-      <section class="block" id="inductions" aria-labelledby="ind-title">
-        <header class="block__head">
-          <div>
-            <h2 id="ind-title" class="block__title">Site inductions</h2>
-            <p class="block__sub">
-              Every contractor and visitor completes the site-specific induction on arrival. Scan
-              the QR poster at the gate or open the form below.
-            </p>
-          </div>
-        </header>
-
-        <div class="grid grid--inductions" id="ind-grid"></div>
       </section>
 
       <section class="block block--footer-note">

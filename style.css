@@ -1,15 +1,16 @@
 /* ============================================================
    FoxSafe Dashboard — Fox Group Quarries
-   Brand: navy (#0d1d4d) + amber (#f6a51a)
-   Typography: Inter (body) + Space Grotesk (display)
+   Brand: Fox Navy #1a237e + Fox Amber #e89018 + Fox Lime #9bc63b
+   Sampled directly from the Fox Group full-colour logo.
+   Typography: Philosopher (display, matches Jotform) + Inter (body)
    ============================================================ */
 
 :root,
 [data-theme='light'] {
-  --fox-navy: #0d1d4d;
-  --fox-navy-deep: #081438;
-  --fox-amber: #f6a51a;
-  --fox-amber-2: #ffc14d;
+  --fox-navy: #1a237e;
+  --fox-navy-deep: #121858;
+  --fox-amber: #e89018;
+  --fox-amber-2: #ffb84d;
   --fox-lime: #9bc63b;
 
   --color-bg: #f4f5f8;
@@ -25,9 +26,9 @@
   --color-text-inverse: #ffffff;
 
   --color-primary: var(--fox-navy);
-  --color-primary-hover: #122760;
+  --color-primary-hover: #2a3499;
   --color-accent: var(--fox-amber);
-  --color-accent-hover: #db8d0f;
+  --color-accent-hover: #c97a0f;
 
   --radius-sm: 0.45rem;
   --radius-md: 0.7rem;
@@ -35,9 +36,9 @@
   --radius-xl: 1.6rem;
   --radius-full: 9999px;
 
-  --shadow-sm: 0 1px 2px rgba(13, 29, 77, 0.06);
-  --shadow-md: 0 8px 24px rgba(13, 29, 77, 0.08);
-  --shadow-lg: 0 22px 48px rgba(13, 29, 77, 0.14);
+  --shadow-sm: 0 1px 2px rgba(26, 35, 126, 0.06);
+  --shadow-md: 0 8px 24px rgba(26, 35, 126, 0.08);
+  --shadow-lg: 0 22px 48px rgba(26, 35, 126, 0.14);
 
   --space-1: 0.25rem;
   --space-2: 0.5rem;
@@ -51,7 +52,7 @@
   --space-16: 4rem;
 
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-  --font-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  --font-display: 'Philosopher', 'Inter', Georgia, serif;
 }
 
 [data-theme='dark'] {
@@ -167,12 +168,19 @@ textarea {
 [data-theme='dark'] .brand {
   color: var(--color-text);
 }
-.brand__mark {
-  display: inline-flex;
-  color: var(--fox-navy);
+.brand__logo {
+  display: block;
+  width: auto;
+  height: 40px;
+  max-height: 40px;
+  object-fit: contain;
+  border-radius: 6px;
 }
-[data-theme='dark'] .brand__mark {
-  color: var(--fox-amber);
+[data-theme='dark'] .brand__logo {
+  /* lift the logo off a dark backdrop with a soft halo */
+  background: rgba(255, 255, 255, 0.92);
+  padding: 4px 8px;
+  height: 44px;
 }
 .brand__text {
   display: flex;

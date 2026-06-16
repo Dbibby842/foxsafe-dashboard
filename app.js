@@ -139,13 +139,6 @@ const ssow = [
 
 /* ---------- Permits, Checks & Procedures ---------- */
 const permits = {
-  'Permits to Work': [
-    { code: 'PTW', title: 'General Permit to Work', doc: 'https://form.jotform.com/261662564334358?docType=Permit%20to%20Work%20%E2%80%94%20General' },
-    { code: 'PTW-14', title: 'Working at Height Permit', doc: 'https://form.jotform.com/261662564334358?docType=Permit%20to%20Work%20%E2%80%94%20Working%20at%20Heights' },
-    { code: 'PTW-15', title: 'Hot Works Permit', doc: 'https://form.jotform.com/261662564334358?docType=Permit%20to%20Work%20%E2%80%94%20Hot%20Works' },
-    { code: 'PTW-16', title: 'Permit to Dig', doc: 'https://form.jotform.com/261662564334358?docType=Permit%20to%20Work%20%E2%80%94%20Dig' },
-    { code: 'PTW-CS', title: 'Confined Space Permit', doc: 'docs/PTW-Confined-Space.pdf' },
-  ],
   'Plant Check Sheets': [
     { code: 'CHK', title: 'Screener — Daily Check Sheet', doc: 'https://form.jotform.com/261654049909365?machineType=Screener' },
     { code: 'CHK', title: 'Excavator — Weekly Check Sheet', doc: 'https://form.jotform.com/261654049909365?machineType=Excavator' },
@@ -154,16 +147,21 @@ const permits = {
     { code: 'CHK', title: 'Dozer — Check Sheet', doc: 'https://form.jotform.com/261654049909365?machineType=Dozer' },
     { code: 'CHK', title: 'Dumper — Weekly Check Sheet', doc: 'https://form.jotform.com/261654049909365?machineType=Dumper' },
   ],
+  'Permits to Work': [
+    { code: 'PTW', title: 'General Permit to Work', doc: 'https://form.jotform.com/261662564334358?docType=Permit%20to%20Work%20%E2%80%94%20General' },
+    { code: 'PTW-14', title: 'Working at Height Permit', doc: 'https://form.jotform.com/261662564334358?docType=Permit%20to%20Work%20%E2%80%94%20Working%20at%20Heights' },
+    { code: 'PTW-15', title: 'Hot Works Permit', doc: 'https://form.jotform.com/261662564334358?docType=Permit%20to%20Work%20%E2%80%94%20Hot%20Works' },
+    { code: 'PTW-16', title: 'Permit to Dig', doc: 'https://form.jotform.com/261662564334358?docType=Permit%20to%20Work%20%E2%80%94%20Dig' },
+    { code: 'SWM', title: 'Surface Water Management Checklist', doc: 'https://form.jotform.com/261662564334358?docType=Surface%20Water%20Management%20Checklist' },
+  ],
   'Incident & Reporting': [
     { code: 'INC', title: 'Accident & Near Miss Reporting Procedure (V6)', doc: 'docs/INC-Accident-Near-Miss-Procedure.pdf' },
     { code: 'INC', title: 'Accident / Incident Reporting Flowchart', doc: 'docs/INC-Reporting-Flowchart.pdf' },
-    { code: 'INC', title: 'FoxSafe Near Miss Report Cover', doc: 'docs/INC-Near-Miss-Report-Cover.pdf' },
     { code: 'FORM', title: 'Accident Report Form (online)', doc: 'https://docs.google.com/forms/d/1BsH2HjnSzJb5k-JbbBRYr0VDPwfH5-vRsiHF07J3sCM/viewform' },
     { code: 'FORM', title: 'Near Miss Report Form 2025 (online)', doc: 'https://docs.google.com/forms/d/1aXyo6o193Vb45RH32ywvIikrofgyuIdU9o9o52u85is/viewform' },
   ],
   'Rules & Procedures': [
     { code: 'PRC', title: 'Daily Briefing (V2)', doc: 'https://form.jotform.com/261662564334358?docType=Daily%20Pre-Start%20Briefing' },
-    { code: 'PRC', title: 'Surface Water Management Checklist', doc: 'https://form.jotform.com/261662564334358?docType=Surface%20Water%20Management%20Checklist' },
     { code: 'PRC', title: 'General Conduct Rules', doc: 'docs/PRC-General-Conduct-Rules.pdf' },
     { code: 'PRC', title: 'Vehicle Rules', doc: 'docs/PRC-Vehicle-Rules.pdf' },
     { code: 'PRC', title: 'Spill Response Procedure', doc: 'docs/PRC-Spill-Response.pdf' },
@@ -379,7 +377,7 @@ renderRA();
 renderSSoW();
 renderPermits();
 renderReg8();
-renderInductions();
+// renderInductions();  // section removed
 
 wireFilter('site-search', '.site-card');
 wireFilter('ra-search', '#ra-groups .ra-card', '#ra-groups .ra-group');
@@ -388,7 +386,7 @@ wireFilter('prm-search', '#prm-groups .ra-card', '#prm-groups .ra-group');
 wireFilter('reg8-search', '#reg8-grid .ssow-card');
 
 /* Active nav-link on scroll */
-const sections = ['sites', 'ra', 'ssow', 'permits', 'reg8', 'inductions']
+const sections = ['sites', 'ra', 'ssow', 'permits', 'reg8']
   .map((id) => document.getElementById(id))
   .filter(Boolean);
 const navLinks = document.querySelectorAll('.app-nav__link');
