@@ -154,6 +154,10 @@ const permits = {
     { code: 'PTW-16', title: 'Permit to Dig', doc: 'https://form.jotform.com/261662564334358?docType=Permit%20to%20Work%20%E2%80%94%20Dig' },
     { code: 'SWM', title: 'Surface Water Management Checklist', doc: 'https://form.jotform.com/261662564334358?docType=Surface%20Water%20Management%20Checklist' },
   ],
+  'Inspections': [
+    { code: 'INS', title: 'Daily Recycling Yard / Tip Inspection', doc: 'https://form.jotform.com/251733443036351' },
+    { code: 'INS', title: 'Weekly Inspection Report', doc: 'https://form.jotform.com/251683874798075' },
+  ],
   'Incident & Reporting': [
     { code: 'INC', title: 'Accident & Near Miss Reporting Procedure (V6)', doc: 'docs/INC-Accident-Near-Miss-Procedure.pdf' },
     { code: 'INC', title: 'Accident / Incident Reporting Flowchart', doc: 'docs/INC-Reporting-Flowchart.pdf' },
