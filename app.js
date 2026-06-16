@@ -147,12 +147,12 @@ const permits = {
     { code: 'PTW-CS', title: 'Confined Space Permit', doc: 'docs/PTW-Confined-Space.pdf' },
   ],
   'Plant Check Sheets': [
-    { code: 'CHK', title: 'Crusher — Daily Check Sheet', doc: 'docs/CHK-Crusher-Daily.pdf' },
-    { code: 'CHK', title: 'Dozer — Check Sheet', doc: 'docs/CHK-Dozer.pdf' },
-    { code: 'CHK', title: 'Dumper — Weekly Check Sheet', doc: 'docs/CHK-Dumper-Weekly.pdf' },
-    { code: 'CHK', title: 'Excavator — Weekly Check Sheet', doc: 'docs/CHK-Excavator-Weekly.pdf' },
-    { code: 'CHK', title: 'Loading Shovel — Daily Check Sheet', doc: 'docs/CHK-Loading-Shovel-Daily.pdf' },
-    { code: 'CHK', title: 'Screener — Daily Check Sheet', doc: 'docs/CHK-Screener-Daily.pdf' },
+    { code: 'CHK', title: 'Screener — Daily Check Sheet', doc: 'https://form.jotform.com/261654049909365?machineType=Screener' },
+    { code: 'CHK', title: 'Excavator — Weekly Check Sheet', doc: 'https://form.jotform.com/261654049909365?machineType=Excavator' },
+    { code: 'CHK', title: 'Loading Shovel — Daily Check Sheet', doc: 'https://form.jotform.com/261654049909365?machineType=Loading%20Shovel' },
+    { code: 'CHK', title: 'Crusher — Daily Check Sheet', doc: 'https://form.jotform.com/261654049909365?machineType=Crusher' },
+    { code: 'CHK', title: 'Dozer — Check Sheet', doc: 'https://form.jotform.com/261654049909365?machineType=Dozer' },
+    { code: 'CHK', title: 'Dumper — Weekly Check Sheet', doc: 'https://form.jotform.com/261654049909365?machineType=Dumper' },
   ],
   'Incident & Reporting': [
     { code: 'INC', title: 'Accident & Near Miss Reporting Procedure (V6)', doc: 'docs/INC-Accident-Near-Miss-Procedure.pdf' },
