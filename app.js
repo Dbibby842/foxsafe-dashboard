@@ -160,6 +160,7 @@ const permits = {
   ],
   'Environmental': [
     { code: 'ENV', title: 'Dust Management Plan — Tong Quarry', doc: 'docs/Dust-Management-Plan-Tong-Quarry.pdf' },
+    { code: 'ENV', title: 'Environmental Procedures Plan', doc: 'docs/Environmental-Procedures-Plan.pdf' },
   ],
 };
 
