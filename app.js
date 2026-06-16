@@ -42,7 +42,7 @@ const sites = [
     location: 'Tong, West Yorkshire',
     tag: '',
     accent: 'navy',
-    induction: 'https://docs.google.com/forms/d/1L3oJSCpc3rk98vkRWTtuqEvGGEN-tgccMxJJDDaTSyA/viewform',
+    induction: '',
     docs: [
       { label: 'Risk assessments (PDF)', href: 'docs/Tong-Quarry-Risk-Assessments.pdf' },
       { label: 'Safe system of works (PDF)', href: 'docs/Tong-Quarry-Safe-System-of-Works.pdf' },
@@ -214,12 +214,12 @@ function renderSites() {
             ${s.tag ? `<span class="site-card__tag">${esc(s.tag)}</span>` : ''}
           </header>
           <ul class="site-card__docs">${docsHtml}</ul>
-          <footer class="site-card__foot">
+          ${s.induction ? `<footer class="site-card__foot">
             <a class="btn btn--primary btn--sm" href="${esc(s.induction)}" target="_blank" rel="noopener">
               Open site induction
               <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
             </a>
-          </footer>
+          </footer>` : ''}
         </article>`;
     })
     .join('');
