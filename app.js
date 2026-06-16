@@ -37,19 +37,6 @@ setInterval(updateClock, 30 * 1000);
 /* ---------- Quarry sites ---------- */
 const sites = [
   {
-    id: 'tong',
-    name: 'Tong Quarry',
-    location: 'Tong, West Yorkshire',
-    tag: '',
-    accent: 'navy',
-    induction: '',
-    docs: [
-      { label: 'Risk assessments (PDF)', href: 'docs/Tong-Quarry-Risk-Assessments.pdf' },
-      { label: 'Safe system of works (PDF)', href: 'docs/Tong-Quarry-Safe-System-of-Works.pdf' },
-      { label: 'Induction sheet (DOCX)', href: 'docs/Tong-Quarry-Induction.docx' },
-    ],
-  },
-  {
     id: 'ellel',
     name: 'Ellel Crag Quarry',
     location: 'Ellel, Lancashire',
