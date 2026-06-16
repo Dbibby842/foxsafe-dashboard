@@ -140,10 +140,10 @@ const ssow = [
 /* ---------- Permits, Checks & Procedures ---------- */
 const permits = {
   'Permits to Work': [
-    { code: 'PTW', title: 'General Permit to Work', doc: 'docs/PTW-General-Permit-to-Work.pdf' },
-    { code: 'PTW-14', title: 'Working at Height Permit', doc: 'docs/PTW-Working-at-Height.pdf' },
-    { code: 'PTW-15', title: 'Hot Works Permit', doc: 'docs/PTW-Hot-Works.pdf' },
-    { code: 'PTW-16', title: 'Permit to Dig', doc: 'docs/PTW-Permit-to-Dig.pdf' },
+    { code: 'PTW', title: 'General Permit to Work', doc: 'https://form.jotform.com/261662564334358?docType=Permit%20to%20Work%20%E2%80%94%20General' },
+    { code: 'PTW-14', title: 'Working at Height Permit', doc: 'https://form.jotform.com/261662564334358?docType=Permit%20to%20Work%20%E2%80%94%20Working%20at%20Heights' },
+    { code: 'PTW-15', title: 'Hot Works Permit', doc: 'https://form.jotform.com/261662564334358?docType=Permit%20to%20Work%20%E2%80%94%20Hot%20Works' },
+    { code: 'PTW-16', title: 'Permit to Dig', doc: 'https://form.jotform.com/261662564334358?docType=Permit%20to%20Work%20%E2%80%94%20Dig' },
     { code: 'PTW-CS', title: 'Confined Space Permit', doc: 'docs/PTW-Confined-Space.pdf' },
   ],
   'Plant Check Sheets': [
@@ -162,8 +162,8 @@ const permits = {
     { code: 'FORM', title: 'Near Miss Report Form 2025 (online)', doc: 'https://docs.google.com/forms/d/1aXyo6o193Vb45RH32ywvIikrofgyuIdU9o9o52u85is/viewform' },
   ],
   'Rules & Procedures': [
-    { code: 'PRC', title: 'Daily Briefing (V2)', doc: 'docs/PRC-Daily-Briefing.pdf' },
-    { code: 'PRC', title: 'Surface Water Management Checklist', doc: 'docs/PRC-Surface-Water-Checklist.pdf' },
+    { code: 'PRC', title: 'Daily Briefing (V2)', doc: 'https://form.jotform.com/261662564334358?docType=Daily%20Pre-Start%20Briefing' },
+    { code: 'PRC', title: 'Surface Water Management Checklist', doc: 'https://form.jotform.com/261662564334358?docType=Surface%20Water%20Management%20Checklist' },
     { code: 'PRC', title: 'General Conduct Rules', doc: 'docs/PRC-General-Conduct-Rules.pdf' },
     { code: 'PRC', title: 'Vehicle Rules', doc: 'docs/PRC-Vehicle-Rules.pdf' },
     { code: 'PRC', title: 'Spill Response Procedure', doc: 'docs/PRC-Spill-Response.pdf' },
