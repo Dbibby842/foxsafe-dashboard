@@ -175,6 +175,12 @@ const permits = {
     { code: 'ENV', title: 'Dust Management Plan — Woods Waste Westby', doc: 'docs/Dust-Management-Plan-Woods-Waste-Westby.pdf' },
     { code: 'ENV', title: 'Environmental Procedures Plan', doc: 'docs/Environmental-Procedures-Plan.pdf' },
   ],
+  'Insurance & Policies': [
+    { code: 'POL', title: 'Fox Brothers (Leyland) — H&S Policy Statement (25-26)', doc: 'docs/Fox-Brothers-Leyland-HS-Policy-Statement.pdf' },
+    { code: 'INS', title: 'Fox Brothers (Leyland) — Insurance', doc: 'docs/Fox-Brothers-Leyland-Insurance.pdf' },
+    { code: 'POL', title: 'J A Jackson — H&S Policy Statement (26-27)', doc: 'docs/JA-Jackson-HS-Policy-Statement.pdf' },
+    { code: 'INS', title: 'J A Jackson — Insurance', doc: 'docs/JA-Jackson-Insurance.pdf' },
+  ],
 };
 
 /* ---------- Statutory Appointments — Reg 8(1)(d) ---------- */
