@@ -76,9 +76,10 @@ const sites = [
     id: 'tong',
     name: 'Tong Quarry',
     location: 'Tong, Lancashire',
-    tag: 'Induction sheet',
+    tag: 'Induction live',
     accent: 'amber',
-    docs: [{ label: 'Induction sheet (DOCX)', href: 'docs/Tong-Quarry-Induction.docx' }],
+    induction: 'https://docs.google.com/forms/d/1L3oJSCpc3rk98vkRWTtuqEvGGEN-tgccMxJJDDaTSyA/viewform',
+    docs: [{ label: 'Induction sheet (PDF)', href: 'docs/Tong-Quarry-Induction.pdf' }],
   },
 ];
 
