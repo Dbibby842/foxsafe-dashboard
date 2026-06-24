@@ -172,6 +172,7 @@ const permits = {
     { code: 'ENV', title: 'Dust Management Plan — Ellel Crag Quarry', doc: 'docs/Dust-Management-Plan-Ellel-Crag-Quarry.pdf' },
     { code: 'ENV', title: 'Dust Management Plan — Lydiate Lane Quarry', doc: 'docs/Dust-Management-Plan-Lydiate-Lane-Quarry.pdf' },
     { code: 'ENV', title: 'Dust Management Plan — Tong Quarry', doc: 'docs/Dust-Management-Plan-Tong-Quarry.pdf' },
+    { code: 'ENV', title: 'Dust Management Plan — Woods Waste Westby', doc: 'docs/Dust-Management-Plan-Woods-Waste-Westby.pdf' },
     { code: 'ENV', title: 'Environmental Procedures Plan', doc: 'docs/Environmental-Procedures-Plan.pdf' },
   ],
 };
