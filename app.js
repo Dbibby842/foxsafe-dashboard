@@ -72,6 +72,14 @@ const sites = [
     induction: 'https://docs.google.com/forms/d/1t9CIssftUjghLSKHpSeT-K4PmqpDUOWpm-GJqWiEQlM/viewform',
     docs: [{ label: 'Induction sheet (DOCX)', href: 'docs/Woods-Waste-Induction.docx' }],
   },
+  {
+    id: 'tong',
+    name: 'Tong Quarry',
+    location: 'Tong, Lancashire',
+    tag: 'Induction sheet',
+    accent: 'amber',
+    docs: [{ label: 'Induction sheet (DOCX)', href: 'docs/Tong-Quarry-Induction.docx' }],
+  },
 ];
 
 /* ---------- Risk assessments (Tong Quarry register) ---------- */
