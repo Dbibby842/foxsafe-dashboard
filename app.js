@@ -177,6 +177,11 @@ const permits = {
     { code: 'TMP', title: 'Traffic Management Plan — Ellel Crag Quarry', doc: 'docs/Traffic-Management-Plan-Ellel-Crag-Quarry.pdf' },
     { code: 'TMP', title: 'Traffic Management Plan — Lydiate Lane Quarry', doc: 'docs/Traffic-Management-Plan-Lydiate-Lane-Quarry.pdf' },
   ],
+  'Geotechnical': [
+    { code: 'GEO', title: 'Geotechnical Assessment — Tong Quarry (May 2024)', doc: 'docs/Geotechnical-Assessment-Tong-Quarry-May-2024.pdf' },
+    { code: 'GEO', title: 'Geotechnical Assessment Summary & Management Report — Tong Quarry (May 2024)', doc: 'docs/Geotechnical-Assessment-Summary-Tong-Quarry-May-2024.pdf' },
+    { code: 'GEO', title: 'Safety Procedures, Excavations & Tip Rules — Tong Quarry (Jul 2025)', doc: 'docs/Safety-Procedures-Excavations-Tip-Rules-Tong-Quarry-Jul-2025.pdf' },
+  ],
   'Environmental': [
     { code: 'ENV', title: 'Dust Management Plan — Bradleys Sand Pit', doc: 'docs/Dust-Management-Plan-Bradleys-Sand-Pit.pdf' },
     { code: 'ENV', title: 'Dust Management Plan — Ellel Crag Quarry', doc: 'docs/Dust-Management-Plan-Ellel-Crag-Quarry.pdf' },
