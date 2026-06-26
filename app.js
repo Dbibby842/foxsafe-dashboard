@@ -262,8 +262,9 @@ function renderRA() {
           </a>`,
         )
         .join('');
+      const slug = heading.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
       return `
-        <section class="ra-group" data-group="${esc(heading.toLowerCase())}">
+        <section id="grp-${slug}" class="ra-group" data-group="${esc(heading.toLowerCase())}">
           <h3 class="ra-group__title">
             ${esc(heading)}
             <span class="ra-group__count">${items.length}</span>
@@ -293,8 +294,9 @@ function renderPermits() {
           </a>`,
         )
         .join('');
+      const slug = heading.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
       return `
-        <section class="ra-group" data-group="${esc(heading.toLowerCase())}">
+        <section id="grp-${slug}" class="ra-group" data-group="${esc(heading.toLowerCase())}">
           <h3 class="ra-group__title">
             ${esc(heading)}
             <span class="ra-group__count">${items.length}</span>
