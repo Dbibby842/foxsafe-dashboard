@@ -164,6 +164,7 @@ textarea {
   align-items: center;
   gap: 0.7rem;
   color: var(--fox-navy);
+  flex-shrink: 0;
 }
 [data-theme='dark'] .brand {
   color: var(--color-text);
@@ -187,6 +188,14 @@ textarea {
   flex-direction: column;
   line-height: 1;
 }
+.brand__text--right {
+  color: var(--fox-navy);
+  padding-left: 0.6rem;
+  border-left: 1px solid var(--color-border);
+}
+[data-theme='dark'] .brand__text--right {
+  color: var(--color-text);
+}
 .brand__name {
   font-family: var(--font-display);
   font-weight: 700;
@@ -207,6 +216,8 @@ textarea {
   gap: 0.4rem;
   margin-left: 1rem;
   flex-wrap: wrap;
+  flex: 1 1 auto;
+  min-width: 0;
 }
 .app-nav__link {
   padding: 0.45rem 0.85rem;
@@ -234,6 +245,7 @@ textarea {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  flex-shrink: 0;
 }
 
 .clock {

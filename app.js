@@ -410,19 +410,35 @@ wireFilter('ssow-search', '#ssow-grid .ssow-card');
 wireFilter('prm-search', '#prm-groups .ra-card', '#prm-groups .ra-group');
 wireFilter('reg8-search', '#reg8-grid .ssow-card');
 
-/* Active nav-link on scroll */
-const sections = ['sites', 'ra', 'ssow', 'permits', 'reg8']
-  .map((id) => document.getElementById(id))
-  .filter(Boolean);
+/* Active nav-link on scroll + click */
 const navLinks = document.querySelectorAll('.app-nav__link');
+const navHrefs = new Set(
+  Array.from(navLinks)
+    .map((l) => l.getAttribute('href'))
+    .filter((h) => h && h.startsWith('#')),
+);
+// Observe every section that has a matching nav link (parent sections + group anchors)
+const sections = Array.from(navHrefs)
+  .map((h) => document.getElementById(h.slice(1)))
+  .filter(Boolean);
+const setActive = (href) => {
+  navLinks.forEach((l) => l.classList.toggle('is-active', l.getAttribute('href') === href));
+};
 const io = new IntersectionObserver(
   (entries) => {
-    entries.forEach((e) => {
-      if (e.isIntersecting) {
-        navLinks.forEach((l) => l.classList.toggle('is-active', l.getAttribute('href') === '#' + e.target.id));
-      }
-    });
+    // Pick the entry closest to the top of the viewport among those intersecting
+    const visible = entries.filter((e) => e.isIntersecting);
+    if (!visible.length) return;
+    visible.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+    setActive('#' + visible[0].target.id);
   },
-  { rootMargin: '-40% 0px -55% 0px' },
+  { rootMargin: '-30% 0px -60% 0px' },
 );
 sections.forEach((s) => io.observe(s));
+// Apply active state immediately on click for snappier feedback
+navLinks.forEach((l) => {
+  l.addEventListener('click', () => {
+    const href = l.getAttribute('href');
+    if (href && href.startsWith('#')) setActive(href);
+  });
+});
