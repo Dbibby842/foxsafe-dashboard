@@ -173,6 +173,10 @@ const permits = {
     { code: 'PRC', title: 'Spill Response Procedure', doc: 'docs/PRC-Spill-Response.pdf' },
     { code: 'PRC', title: 'Safe Quarry (Master)', doc: 'docs/PRC-Safe-Quarry.pdf' },
   ],
+  'Traffic Management': [
+    { code: 'TMP', title: 'Traffic Management Plan — Ellel Crag Quarry', doc: 'docs/Traffic-Management-Plan-Ellel-Crag-Quarry.pdf' },
+    { code: 'TMP', title: 'Traffic Management Plan — Lydiate Lane Quarry', doc: 'docs/Traffic-Management-Plan-Lydiate-Lane-Quarry.pdf' },
+  ],
   'Environmental': [
     { code: 'ENV', title: 'Dust Management Plan — Bradleys Sand Pit', doc: 'docs/Dust-Management-Plan-Bradleys-Sand-Pit.pdf' },
     { code: 'ENV', title: 'Dust Management Plan — Ellel Crag Quarry', doc: 'docs/Dust-Management-Plan-Ellel-Crag-Quarry.pdf' },
