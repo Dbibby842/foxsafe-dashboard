@@ -174,8 +174,11 @@ const permits = {
     { code: 'PRC', title: 'Safe Quarry (Master)', doc: 'docs/PRC-Safe-Quarry.pdf' },
   ],
   'Traffic Management': [
+    { code: 'TMP', title: 'Traffic Management Plan — Bradleys Sand Pit (Part 1)', doc: 'docs/Traffic-Management-Plan-Bradleys-Sandpit-1.pdf' },
+    { code: 'TMP', title: 'Traffic Management Plan — Bradleys Sand Pit (Part 2)', doc: 'docs/Traffic-Management-Plan-Bradleys-Sandpit-2.pdf' },
     { code: 'TMP', title: 'Traffic Management Plan — Ellel Crag Quarry', doc: 'docs/Traffic-Management-Plan-Ellel-Crag-Quarry.pdf' },
     { code: 'TMP', title: 'Traffic Management Plan — Lydiate Lane Quarry', doc: 'docs/Traffic-Management-Plan-Lydiate-Lane-Quarry.pdf' },
+    { code: 'TMP', title: 'Traffic Management Plan — Tong Quarry', doc: 'docs/Traffic-Management-Plan-Tong-Quarry.pdf' },
   ],
   'Geotechnical': [
     { code: 'GEO', title: 'Geotechnical Assessment — Tong Quarry (May 2024)', doc: 'docs/Geotechnical-Assessment-Tong-Quarry-May-2024.pdf' },
