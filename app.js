@@ -198,12 +198,49 @@ const permits = {
   ],
 };
 
-/* ---------- Statutory Appointments — Reg 8(1)(d) ---------- */
+/* ---------- Statutory Appointments — Reg 8(1)(c) ---------- */
 const reg8 = [
-  { code: 'REG 8', title: 'Tong Quarry — Supervisor Appointment', doc: 'docs/REG8-Tong-Quarry.pdf' },
-  { code: 'REG 8', title: 'Ellel Crag Quarry — Supervisor Appointment', doc: 'docs/REG8-Ellel-Crag.pdf' },
-  { code: 'REG 8', title: 'Lydiate Lane Quarry — Supervisor Appointment', doc: 'docs/REG8-Lydiate-Lane.pdf' },
-  { code: 'REG 8', title: 'Woods Waste Landfill — Supervisor Appointment', doc: 'docs/REG8-Woods-Waste.pdf' },
+  {
+    code: 'REG 8',
+    title: 'Tong Quarry — Supervisor Appointment',
+    manager: 'Barry Thompson',
+    role: 'Quarries Operations Manager',
+    effective: 'Effective 5 April 2025',
+    doc: 'docs/REG8-Barry-Thompson-signed.pdf',
+  },
+  {
+    code: 'REG 8',
+    title: 'Ellel Crag Quarry — Supervisor Appointment',
+    manager: 'Barry Thompson',
+    role: 'Quarries Operations Manager',
+    effective: 'Effective 5 April 2025',
+    doc: 'docs/REG8-Barry-Thompson-signed.pdf',
+  },
+  {
+    code: 'REG 8',
+    title: 'Lydiate Lane Quarry — Supervisor Appointment',
+    manager: 'Barry Thompson',
+    role: 'Quarries Operations Manager',
+    effective: 'Effective 5 April 2025',
+    doc: 'docs/REG8-Barry-Thompson-signed.pdf',
+  },
+  {
+    code: 'REG 8',
+    title: 'Woods Waste Landfill — Supervisor Appointment',
+    manager: 'Barry Thompson',
+    role: 'Quarries Operations Manager',
+    effective: 'Effective 5 April 2025',
+    doc: 'docs/REG8-Barry-Thompson-signed.pdf',
+  },
+  {
+    code: 'REG 8',
+    title: "Bradley's Sandpit, Fulwood — Supervisor Appointment",
+    manager: 'Roy Underwood',
+    role: 'Operations Manager',
+    substitute: 'Substitute: Alison Miller, Assistant Quarry Manager',
+    effective: 'Effective 5 April 2025',
+    doc: 'docs/REG8-Roy-Underwood-Bradleys-Sandpit-signed.pdf',
+  },
 ];
 
 /* ============================================================
@@ -319,16 +356,32 @@ function renderReg8() {
   const grid = document.getElementById('reg8-grid');
   if (!grid) return;
   grid.innerHTML = reg8
-    .map(
-      (r) => `
-      <a class="ssow-card" href="${esc(r.doc)}" target="_blank" rel="noopener" data-search="${esc((r.code + ' ' + r.title).toLowerCase())}" aria-label="Open ${esc(r.title)}">
+    .map((r) => {
+      const searchBlob = [r.code, r.title, r.manager, r.role, r.substitute]
+        .filter(Boolean)
+        .join(' ')
+        .toLowerCase();
+      const managerLine = r.manager
+        ? `<p class="reg8-card__manager"><span class="reg8-card__manager-name">${esc(r.manager)}</span><span class="reg8-card__manager-role">${esc(r.role || '')}</span></p>`
+        : '';
+      const substituteLine = r.substitute
+        ? `<p class="reg8-card__meta">${esc(r.substitute)}</p>`
+        : '';
+      const effectiveLine = r.effective
+        ? `<p class="reg8-card__meta">${esc(r.effective)}</p>`
+        : '';
+      return `
+      <a class="ssow-card reg8-card" href="${esc(r.doc)}" target="_blank" rel="noopener" data-search="${esc(searchBlob)}" aria-label="Open ${esc(r.title)} — ${esc(r.manager || '')}">
         <span class="ssow-card__code">${esc(r.code)}</span>
         <h4 class="ssow-card__title">${esc(r.title)}</h4>
+        ${managerLine}
+        ${substituteLine}
+        ${effectiveLine}
         <span class="card-doc-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>
         </span>
-      </a>`,
-    )
+      </a>`;
+    })
     .join('');
 }
 
