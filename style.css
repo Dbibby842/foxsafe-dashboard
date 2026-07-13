@@ -802,6 +802,18 @@ textarea {
 }
 
 /* Reg 8 supervisor appointment card additions */
+.reg8-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+.reg8-group__blurb {
+  margin: 0.15rem 0 0.9rem;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.45;
+  max-width: 62ch;
+}
 .reg8-card {
   gap: 0.3rem;
 }

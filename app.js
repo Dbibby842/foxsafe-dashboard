@@ -200,60 +200,77 @@ const permits = {
 
 /* ----------------------------------------------------------
    Statutory Appointments — Quarries Regulations 1999
-   • Reg 8(1)(d) — site-level supervisor appointment (per site)
-   • Reg 8(1)(c) — appointed competent manager (named individual)
+   Split into two sub-groups:
+     • Reg 8(1)(d) — site-level supervisor appointment (per site)
+     • Reg 8(1)(c) — appointed competent manager (named individual)
    ---------------------------------------------------------- */
-const reg8 = [
+const reg8Groups = [
   {
-    code: 'REG 8(1)(D)',
-    title: 'Tong Quarry — Supervisor Appointment',
-    manager: 'Barry Thompson',
-    role: 'Quarries Operations Manager',
-    effective: 'Effective 5 April 2025',
-    doc: 'docs/REG8-Barry-Thompson-signed.pdf',
+    id: 'reg8-sites',
+    heading: 'Site supervisor appointments — Reg 8(1)(d)',
+    blurb:
+      'Signed appointment of the competent supervisor for each site, under regulation 8(1)(d) of the Quarries Regulations 1999.',
+    items: [
+      {
+        code: 'REG 8(1)(D)',
+        title: 'Tong Quarry — Supervisor Appointment',
+        manager: 'Barry Thompson',
+        role: 'Quarries Operations Manager',
+        effective: 'Effective 5 April 2025',
+        doc: 'docs/REG8-Barry-Thompson-signed.pdf',
+      },
+      {
+        code: 'REG 8(1)(D)',
+        title: 'Ellel Crag Quarry — Supervisor Appointment',
+        manager: 'Barry Thompson',
+        role: 'Quarries Operations Manager',
+        effective: 'Effective 5 April 2025',
+        doc: 'docs/REG8-Barry-Thompson-signed.pdf',
+      },
+      {
+        code: 'REG 8(1)(D)',
+        title: 'Lydiate Lane Quarry — Supervisor Appointment',
+        manager: 'Barry Thompson',
+        role: 'Quarries Operations Manager',
+        effective: 'Effective 5 April 2025',
+        doc: 'docs/REG8-Barry-Thompson-signed.pdf',
+      },
+      {
+        code: 'REG 8(1)(D)',
+        title: 'Woods Waste Landfill — Supervisor Appointment',
+        manager: 'Barry Thompson',
+        role: 'Quarries Operations Manager',
+        effective: 'Effective 5 April 2025',
+        doc: 'docs/REG8-Barry-Thompson-signed.pdf',
+      },
+    ],
   },
   {
-    code: 'REG 8(1)(D)',
-    title: 'Ellel Crag Quarry — Supervisor Appointment',
-    manager: 'Barry Thompson',
-    role: 'Quarries Operations Manager',
-    effective: 'Effective 5 April 2025',
-    doc: 'docs/REG8-Barry-Thompson-signed.pdf',
-  },
-  {
-    code: 'REG 8(1)(D)',
-    title: 'Lydiate Lane Quarry — Supervisor Appointment',
-    manager: 'Barry Thompson',
-    role: 'Quarries Operations Manager',
-    effective: 'Effective 5 April 2025',
-    doc: 'docs/REG8-Barry-Thompson-signed.pdf',
-  },
-  {
-    code: 'REG 8(1)(D)',
-    title: 'Woods Waste Landfill — Supervisor Appointment',
-    manager: 'Barry Thompson',
-    role: 'Quarries Operations Manager',
-    effective: 'Effective 5 April 2025',
-    doc: 'docs/REG8-Barry-Thompson-signed.pdf',
-  },
-  {
-    code: 'REG 8(1)(C)',
-    title: 'Barry Thompson — Appointed Manager',
-    manager: 'Barry Thompson',
-    role: 'Quarries Operations Manager',
-    scope: 'Ellel, Lydiate Lane, Tong (Bacup) and Woods Waste',
-    effective: 'Effective 5 April 2025',
-    doc: 'docs/REG8-Barry-Thompson-signed.pdf',
-  },
-  {
-    code: 'REG 8(1)(C)',
-    title: 'Roy Underwood — Appointed Manager',
-    manager: 'Roy Underwood',
-    role: 'Operations Manager',
-    scope: "Bradley's Sandpit, Fulwood",
-    substitute: 'Substitute: Alison Miller, Assistant Quarry Manager',
-    effective: 'Effective 5 April 2025',
-    doc: 'docs/REG8-Roy-Underwood-Bradleys-Sandpit-signed.pdf',
+    id: 'reg8-managers',
+    heading: 'Appointed managers — Reg 8(1)(c)',
+    blurb:
+      'Named competent individuals appointed to take charge of quarry operations, under regulation 8(1)(c) of the Quarries Regulations 1999.',
+    items: [
+      {
+        code: 'REG 8(1)(C)',
+        title: 'Barry Thompson — Appointed Manager',
+        manager: 'Barry Thompson',
+        role: 'Quarries Operations Manager',
+        scope: 'Ellel, Lydiate Lane, Tong (Bacup) and Woods Waste',
+        effective: 'Effective 5 April 2025',
+        doc: 'docs/REG8-Barry-Thompson-signed.pdf',
+      },
+      {
+        code: 'REG 8(1)(C)',
+        title: 'Roy Underwood — Appointed Manager',
+        manager: 'Roy Underwood',
+        role: 'Operations Manager',
+        scope: "Bradley's Sandpit, Fulwood",
+        substitute: 'Substitute: Alison Miller, Assistant Quarry Manager',
+        effective: 'Effective 5 April 2025',
+        doc: 'docs/REG8-Roy-Underwood-Bradleys-Sandpit-signed.pdf',
+      },
+    ],
   },
 ];
 
@@ -365,29 +382,25 @@ function renderPermits() {
   wrap.innerHTML = groups;
 }
 
-/* ---------- Reg 8 Supervisor Appointments ---------- */
-function renderReg8() {
-  const grid = document.getElementById('reg8-grid');
-  if (!grid) return;
-  grid.innerHTML = reg8
-    .map((r) => {
-      const searchBlob = [r.code, r.title, r.manager, r.role, r.scope, r.substitute]
-        .filter(Boolean)
-        .join(' ')
-        .toLowerCase();
-      const managerLine = r.manager
-        ? `<p class="reg8-card__manager"><span class="reg8-card__manager-name">${esc(r.manager)}</span><span class="reg8-card__manager-role">${esc(r.role || '')}</span></p>`
-        : '';
-      const scopeLine = r.scope
-        ? `<p class="reg8-card__meta">Sites: ${esc(r.scope)}</p>`
-        : '';
-      const substituteLine = r.substitute
-        ? `<p class="reg8-card__meta">${esc(r.substitute)}</p>`
-        : '';
-      const effectiveLine = r.effective
-        ? `<p class="reg8-card__meta">${esc(r.effective)}</p>`
-        : '';
-      return `
+/* ---------- Reg 8 Supervisor Appointments (grouped) ---------- */
+function reg8Card(r) {
+  const searchBlob = [r.code, r.title, r.manager, r.role, r.scope, r.substitute]
+    .filter(Boolean)
+    .join(' ')
+    .toLowerCase();
+  const managerLine = r.manager
+    ? `<p class="reg8-card__manager"><span class="reg8-card__manager-name">${esc(r.manager)}</span><span class="reg8-card__manager-role">${esc(r.role || '')}</span></p>`
+    : '';
+  const scopeLine = r.scope
+    ? `<p class="reg8-card__meta">Sites: ${esc(r.scope)}</p>`
+    : '';
+  const substituteLine = r.substitute
+    ? `<p class="reg8-card__meta">${esc(r.substitute)}</p>`
+    : '';
+  const effectiveLine = r.effective
+    ? `<p class="reg8-card__meta">${esc(r.effective)}</p>`
+    : '';
+  return `
       <a class="ssow-card reg8-card" href="${esc(r.doc)}" target="_blank" rel="noopener" data-search="${esc(searchBlob)}" aria-label="Open ${esc(r.title)} — ${esc(r.manager || '')}">
         <span class="ssow-card__code">${esc(r.code)}</span>
         <h4 class="ssow-card__title">${esc(r.title)}</h4>
@@ -399,6 +412,23 @@ function renderReg8() {
           <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>
         </span>
       </a>`;
+}
+
+function renderReg8() {
+  const wrap = document.getElementById('reg8-groups');
+  if (!wrap) return;
+  wrap.innerHTML = reg8Groups
+    .map((g) => {
+      const cards = g.items.map(reg8Card).join('');
+      return `
+        <section id="${esc(g.id)}" class="ra-group reg8-group" data-group="${esc(g.heading.toLowerCase())}">
+          <h3 class="ra-group__title">
+            ${esc(g.heading)}
+            <span class="ra-group__count">${g.items.length}</span>
+          </h3>
+          <p class="reg8-group__blurb">${esc(g.blurb)}</p>
+          <div class="grid grid--ssow">${cards}</div>
+        </section>`;
     })
     .join('');
 }
@@ -485,7 +515,7 @@ wireFilter('site-search', '.site-card');
 wireFilter('ra-search', '#ra-groups .ra-card', '#ra-groups .ra-group');
 wireFilter('ssow-search', '#ssow-grid .ssow-card');
 wireFilter('prm-search', '#prm-groups .ra-card', '#prm-groups .ra-group');
-wireFilter('reg8-search', '#reg8-grid .ssow-card');
+wireFilter('reg8-search', '#reg8-groups .ssow-card', '#reg8-groups .reg8-group');
 
 /* Active nav-link on scroll + click */
 const navLinks = document.querySelectorAll('.app-nav__link');
