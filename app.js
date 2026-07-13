@@ -74,7 +74,7 @@ const sites = [
   },
   {
     id: 'tong',
-    name: 'Tong Quarry',
+    name: 'Tong (Bacup) Quarry',
     location: 'Tong, Lancashire',
     tag: 'Induction live',
     accent: 'amber',
@@ -83,7 +83,7 @@ const sites = [
   },
 ];
 
-/* ---------- Risk assessments (Tong Quarry register) ---------- */
+/* ---------- Risk assessments (Tong (Bacup) Quarry register) ---------- */
 const riskAssessments = {
   Plant: [
     { code: 'P001', title: 'Operating 360 Excavator', doc: 'docs/RA-P001.pdf' },
@@ -113,7 +113,7 @@ const riskAssessments = {
   ],
 };
 
-/* ---------- Safe Systems of Work (Tong Quarry set) ---------- */
+/* ---------- Safe Systems of Work (Tong (Bacup) Quarry set) ---------- */
 const ssow = [
   { code: 'SSoW-008', title: 'The Use of Ride on Roller', doc: 'docs/SSoW-008.pdf' },
   { code: 'SSoW-009', title: 'The Use of Mobile Crusher', doc: 'docs/SSoW-009.pdf' },
@@ -178,21 +178,21 @@ const permits = {
     { code: 'TMP', title: 'Traffic Management Plan — Bradleys Sand Pit (Part 2)', doc: 'docs/Traffic-Management-Plan-Bradleys-Sandpit-2.pdf' },
     { code: 'TMP', title: 'Traffic Management Plan — Ellel Crag Quarry', doc: 'docs/Traffic-Management-Plan-Ellel-Crag-Quarry.pdf' },
     { code: 'TMP', title: 'Traffic Management Plan — Lydiate Lane Quarry', doc: 'docs/Traffic-Management-Plan-Lydiate-Lane-Quarry.pdf' },
-    { code: 'TMP', title: 'Traffic Management Plan — Tong Quarry', doc: 'docs/Traffic-Management-Plan-Tong-Quarry.pdf' },
+    { code: 'TMP', title: 'Traffic Management Plan — Tong (Bacup) Quarry', doc: 'docs/Traffic-Management-Plan-Tong-Quarry.pdf' },
   ],
   'Geotechnical': [
     { code: 'GEO', title: 'Geotechnical Assessment Report — Bradleys Sand Pit (June 2025)', doc: 'docs/Geotechnical-Assessment-Report-Bradleys-Sand-Pit-June-2025.pdf' },
     { code: 'GEO', title: 'Geotechnical Assessment — Ellel Crag Quarry (December 2025)', doc: 'docs/Geotechnical-Assessment-Ellel-Crag-Quarry-December-2025.pdf' },
     { code: 'GEO', title: 'Geotechnical Assessment Report — Lydiate Lane Quarry (June 2025)', doc: 'docs/Geotechnical-Assessment-Report-Lydiate-Lane-Quarry-June-2025.pdf' },
-    { code: 'GEO', title: 'Geotechnical Assessment — Tong Quarry (May 2024)', doc: 'docs/Geotechnical-Assessment-Tong-Quarry-May-2024.pdf' },
-    { code: 'GEO', title: 'Geotechnical Assessment Summary & Management Report — Tong Quarry (May 2024)', doc: 'docs/Geotechnical-Assessment-Summary-Tong-Quarry-May-2024.pdf' },
-    { code: 'GEO', title: 'Safety Procedures, Excavations & Tip Rules — Tong Quarry (Jul 2025)', doc: 'docs/Safety-Procedures-Excavations-Tip-Rules-Tong-Quarry-Jul-2025.pdf' },
+    { code: 'GEO', title: 'Geotechnical Assessment — Tong (Bacup) Quarry (May 2024)', doc: 'docs/Geotechnical-Assessment-Tong-Quarry-May-2024.pdf' },
+    { code: 'GEO', title: 'Geotechnical Assessment Summary & Management Report — Tong (Bacup) Quarry (May 2024)', doc: 'docs/Geotechnical-Assessment-Summary-Tong-Quarry-May-2024.pdf' },
+    { code: 'GEO', title: 'Safety Procedures, Excavations & Tip Rules — Tong (Bacup) Quarry (Jul 2025)', doc: 'docs/Safety-Procedures-Excavations-Tip-Rules-Tong-Quarry-Jul-2025.pdf' },
   ],
   'Environmental': [
     { code: 'ENV', title: 'Dust Management Plan — Bradleys Sand Pit', doc: 'docs/Dust-Management-Plan-Bradleys-Sand-Pit.pdf' },
     { code: 'ENV', title: 'Dust Management Plan — Ellel Crag Quarry', doc: 'docs/Dust-Management-Plan-Ellel-Crag-Quarry.pdf' },
     { code: 'ENV', title: 'Dust Management Plan — Lydiate Lane Quarry', doc: 'docs/Dust-Management-Plan-Lydiate-Lane-Quarry.pdf' },
-    { code: 'ENV', title: 'Dust Management Plan — Tong Quarry', doc: 'docs/Dust-Management-Plan-Tong-Quarry.pdf' },
+    { code: 'ENV', title: 'Dust Management Plan — Tong (Bacup) Quarry', doc: 'docs/Dust-Management-Plan-Tong-Quarry.pdf' },
     { code: 'ENV', title: 'Dust Management Plan — Woods Waste Westby', doc: 'docs/Dust-Management-Plan-Woods-Waste-Westby.pdf' },
     { code: 'ENV', title: 'Environmental Procedures Plan', doc: 'docs/Environmental-Procedures-Plan.pdf' },
   ],
@@ -213,7 +213,7 @@ const reg8Groups = [
     items: [
       {
         code: 'REG 8(1)(D)',
-        title: 'Tong Quarry — Supervisor Appointment',
+        title: 'Tong (Bacup) Quarry — Supervisor Appointment',
         manager: 'Barry Thompson',
         role: 'Quarries Operations Manager',
         effective: 'Effective 5 April 2025',
@@ -256,7 +256,7 @@ const reg8Groups = [
         title: 'Barry Thompson — Appointed Manager',
         manager: 'Barry Thompson',
         role: 'Quarries Operations Manager',
-        scope: 'Ellel, Lydiate Lane, Tong (Bacup) and Woods Waste',
+        scope: 'Ellel, Lydiate Lane, Tong (Bacup) Quarry and Woods Waste',
         effective: 'Effective 5 April 2025',
         doc: 'docs/REG8-Barry-Thompson-signed.pdf',
       },
