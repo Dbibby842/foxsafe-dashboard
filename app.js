@@ -198,10 +198,14 @@ const permits = {
   ],
 };
 
-/* ---------- Statutory Appointments — Reg 8(1)(c) ---------- */
+/* ----------------------------------------------------------
+   Statutory Appointments — Quarries Regulations 1999
+   • Reg 8(1)(d) — site-level supervisor appointment (per site)
+   • Reg 8(1)(c) — appointed competent manager (named individual)
+   ---------------------------------------------------------- */
 const reg8 = [
   {
-    code: 'REG 8',
+    code: 'REG 8(1)(D)',
     title: 'Tong Quarry — Supervisor Appointment',
     manager: 'Barry Thompson',
     role: 'Quarries Operations Manager',
@@ -209,7 +213,7 @@ const reg8 = [
     doc: 'docs/REG8-Barry-Thompson-signed.pdf',
   },
   {
-    code: 'REG 8',
+    code: 'REG 8(1)(D)',
     title: 'Ellel Crag Quarry — Supervisor Appointment',
     manager: 'Barry Thompson',
     role: 'Quarries Operations Manager',
@@ -217,7 +221,7 @@ const reg8 = [
     doc: 'docs/REG8-Barry-Thompson-signed.pdf',
   },
   {
-    code: 'REG 8',
+    code: 'REG 8(1)(D)',
     title: 'Lydiate Lane Quarry — Supervisor Appointment',
     manager: 'Barry Thompson',
     role: 'Quarries Operations Manager',
@@ -225,7 +229,7 @@ const reg8 = [
     doc: 'docs/REG8-Barry-Thompson-signed.pdf',
   },
   {
-    code: 'REG 8',
+    code: 'REG 8(1)(D)',
     title: 'Woods Waste Landfill — Supervisor Appointment',
     manager: 'Barry Thompson',
     role: 'Quarries Operations Manager',
@@ -233,10 +237,20 @@ const reg8 = [
     doc: 'docs/REG8-Barry-Thompson-signed.pdf',
   },
   {
-    code: 'REG 8',
-    title: "Bradley's Sandpit, Fulwood — Supervisor Appointment",
+    code: 'REG 8(1)(C)',
+    title: 'Barry Thompson — Appointed Manager',
+    manager: 'Barry Thompson',
+    role: 'Quarries Operations Manager',
+    scope: 'Ellel, Lydiate Lane, Tong (Bacup) and Woods Waste',
+    effective: 'Effective 5 April 2025',
+    doc: 'docs/REG8-Barry-Thompson-signed.pdf',
+  },
+  {
+    code: 'REG 8(1)(C)',
+    title: 'Roy Underwood — Appointed Manager',
     manager: 'Roy Underwood',
     role: 'Operations Manager',
+    scope: "Bradley's Sandpit, Fulwood",
     substitute: 'Substitute: Alison Miller, Assistant Quarry Manager',
     effective: 'Effective 5 April 2025',
     doc: 'docs/REG8-Roy-Underwood-Bradleys-Sandpit-signed.pdf',
@@ -357,12 +371,15 @@ function renderReg8() {
   if (!grid) return;
   grid.innerHTML = reg8
     .map((r) => {
-      const searchBlob = [r.code, r.title, r.manager, r.role, r.substitute]
+      const searchBlob = [r.code, r.title, r.manager, r.role, r.scope, r.substitute]
         .filter(Boolean)
         .join(' ')
         .toLowerCase();
       const managerLine = r.manager
         ? `<p class="reg8-card__manager"><span class="reg8-card__manager-name">${esc(r.manager)}</span><span class="reg8-card__manager-role">${esc(r.role || '')}</span></p>`
+        : '';
+      const scopeLine = r.scope
+        ? `<p class="reg8-card__meta">Sites: ${esc(r.scope)}</p>`
         : '';
       const substituteLine = r.substitute
         ? `<p class="reg8-card__meta">${esc(r.substitute)}</p>`
@@ -375,6 +392,7 @@ function renderReg8() {
         <span class="ssow-card__code">${esc(r.code)}</span>
         <h4 class="ssow-card__title">${esc(r.title)}</h4>
         ${managerLine}
+        ${scopeLine}
         ${substituteLine}
         ${effectiveLine}
         <span class="card-doc-icon" aria-hidden="true">
