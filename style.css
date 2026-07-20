@@ -669,6 +669,226 @@ textarea {
   letter-spacing: 0;
 }
 
+/* ============================================================
+   REGISTER TILES  (calendar + attendance-register two-up)
+   ============================================================ */
+.register-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: var(--space-5);
+  margin-bottom: var(--space-8);
+}
+.register-tile {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: flex-start;
+  gap: var(--space-5);
+  padding: var(--space-5) var(--space-5) var(--space-5) var(--space-6);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-left: 5px solid var(--fox-amber);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 1px 2px rgba(17, 22, 43, 0.04);
+  transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+  cursor: pointer;
+}
+.register-tile:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(17, 22, 43, 0.08);
+  border-color: var(--fox-navy);
+}
+.register-tile:focus-visible {
+  outline: 3px solid var(--fox-amber);
+  outline-offset: 2px;
+}
+.register-tile--alt {
+  border-left-color: #0f6c5a;
+}
+.register-tile__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  background: rgba(232, 144, 24, 0.12);
+  color: var(--fox-amber);
+  flex-shrink: 0;
+}
+.register-tile--alt .register-tile__icon {
+  background: rgba(15, 108, 90, 0.12);
+  color: #0f6c5a;
+}
+.register-tile__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+.register-tile__eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+}
+.register-tile__title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-text);
+  margin: 0;
+}
+.register-tile__sub {
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: var(--color-text-muted);
+}
+.register-tile__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.55rem;
+  margin-top: 0.35rem;
+}
+.register-tile__count {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--fox-navy);
+}
+.register-tile--alt .register-tile__count {
+  color: #0f6c5a;
+}
+.register-tile__count-label {
+  font-size: 0.82rem;
+  color: var(--color-text-faint);
+}
+.register-tile__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1rem;
+  border-radius: var(--radius-full);
+  background: var(--fox-navy);
+  color: var(--color-text-inverse);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  align-self: center;
+  white-space: nowrap;
+  transition: background 0.15s, transform 0.15s;
+}
+.register-tile--alt .register-tile__cta {
+  background: #0f6c5a;
+}
+.register-tile:hover .register-tile__cta {
+  background: var(--color-primary-hover);
+  transform: translateX(2px);
+}
+.register-tile--alt:hover .register-tile__cta {
+  background: #0a5445;
+}
+@media (max-width: 640px) {
+  .register-tile {
+    grid-template-columns: auto 1fr;
+    padding: var(--space-4);
+  }
+  .register-tile__cta {
+    grid-column: 1 / -1;
+    justify-content: center;
+  }
+}
+
+/* ============================================================
+   COLLAPSIBLE GROUP (Toolbox Talks accordions)
+   ============================================================ */
+.ra-group--collapsible {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--fox-navy);
+  border-radius: var(--radius-lg);
+  padding: 0;
+  overflow: hidden;
+}
+.ra-group--collapsible + .ra-group--collapsible {
+  margin-top: var(--space-4);
+}
+.ra-group__summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: 1.15rem 1.35rem;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s;
+}
+.ra-group__summary::-webkit-details-marker,
+.ra-group__summary::marker {
+  display: none;
+  content: '';
+}
+.ra-group__summary:hover {
+  background: var(--color-surface-2);
+}
+.ra-group__summary:focus-visible {
+  outline: 3px solid var(--fox-amber);
+  outline-offset: -3px;
+}
+.ra-group__title-text {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: 0;
+  text-transform: none;
+}
+.ra-group__meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+.ra-group__count-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.9rem;
+  background: var(--fox-navy);
+  color: var(--color-text-inverse);
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.ra-group__count-pill-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.9;
+}
+.ra-group__chevron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  transition: transform 0.2s ease;
+}
+.ra-group--collapsible[open] .ra-group__chevron {
+  transform: rotate(180deg);
+}
+.ra-group__body {
+  padding: 0 1.35rem 1.35rem;
+}
+
 .ra-card {
   background: var(--color-surface);
   border: 1px solid var(--color-border);

@@ -473,8 +473,9 @@ function renderPermits() {
 function renderTBT() {
   const wrap = document.getElementById('tbt-groups');
   if (!wrap) return;
-  const groups = Object.entries(tbtLibrary)
-    .map(([heading, items]) => {
+  const entries = Object.entries(tbtLibrary);
+  const groups = entries
+    .map(([heading, items], idx) => {
       const cards = items
         .map(
           (r) => `
@@ -488,17 +489,45 @@ function renderTBT() {
         )
         .join('');
       const slug = heading.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+      const openAttr = idx === 0 ? ' open' : '';
       return `
-        <section id="grp-tbt-${slug}" class="ra-group" data-group="${esc(heading.toLowerCase())}">
-          <h3 class="ra-group__title">
-            ${esc(heading)}
-            <span class="ra-group__count">${items.length}</span>
-          </h3>
-          <div class="grid grid--ra">${cards}</div>
-        </section>`;
+        <details id="grp-tbt-${slug}" class="ra-group ra-group--collapsible" data-group="${esc(heading.toLowerCase())}"${openAttr}>
+          <summary class="ra-group__summary">
+            <span class="ra-group__title-text">${esc(heading)}</span>
+            <span class="ra-group__meta">
+              <span class="ra-group__count-pill">${items.length}<span class="ra-group__count-pill-label">Talks</span></span>
+              <span class="ra-group__chevron" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+              </span>
+            </span>
+          </summary>
+          <div class="ra-group__body">
+            <div class="grid grid--ra">${cards}</div>
+          </div>
+        </details>`;
     })
     .join('');
   wrap.innerHTML = groups;
+
+  /* Auto-open groups that contain a search match when user types */
+  const search = document.getElementById('tbt-search');
+  if (search) {
+    const details = wrap.querySelectorAll('details.ra-group');
+    const originalOpen = Array.from(details).map((d) => d.open);
+    search.addEventListener('input', () => {
+      const q = search.value.trim().toLowerCase();
+      details.forEach((d, i) => {
+        if (!q) {
+          d.open = originalOpen[i];
+          return;
+        }
+        const hasMatch = Array.from(d.querySelectorAll('.ra-card')).some((c) =>
+          (c.dataset.search || '').includes(q),
+        );
+        d.open = hasMatch;
+      });
+    });
+  }
 }
 
 /* ---------- Reg 8 Supervisor Appointments (grouped) ---------- */
