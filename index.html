@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css?v=20260720b" />
+    <link rel="stylesheet" href="style.css?v=20260720c" />
     <link
       rel="icon"
       href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230d1d4d'/><path d='M9 22 V10 H21 V12.6 H12 V15.6 H19 V18.2 H12 V22 Z' fill='%23f6a51a'/></svg>"
@@ -41,10 +41,10 @@
 
         <nav class="app-nav" aria-label="Primary">
           <a class="app-nav__link is-active" href="#sites">Sites</a>
-          <a class="app-nav__link" href="#ra">Risk assessments</a>
-          <a class="app-nav__link" href="#ssow">Safe systems of work</a>
           <a class="app-nav__link" href="#permits">Permits &amp; checks</a>
           <a class="app-nav__link" href="#tbt">Toolbox talks</a>
+          <a class="app-nav__link" href="#ra">Risk assessments</a>
+          <a class="app-nav__link" href="#ssow">Safe systems of work</a>
           <a class="app-nav__link" href="#grp-health-and-safety-policy-insurance">H&amp;S Policy &amp; Insurance</a>
           <a class="app-nav__link" href="#grp-traffic-management">Traffic Management</a>
           <a class="app-nav__link" href="#grp-geotechnical">Geotechnical</a>
@@ -173,86 +173,6 @@
       </section>
 
       <!-- ============================================================
-           RISK ASSESSMENTS  (Tong (Bacup) Quarry register)
-           ============================================================ -->
-      <section class="block" id="ra" aria-labelledby="ra-title">
-        <header class="block__head">
-          <div>
-            <h2 id="ra-title" class="block__title">Risk assessment register</h2>
-            <p class="block__sub">
-              Plant, transport and task-based risk assessments held against Tong (Bacup) Quarry. Same
-              register applies across Fox Group Quarries unless a site-specific RA is issued.
-            </p>
-          </div>
-          <div class="filter">
-            <label class="filter__label" for="ra-search">Filter RAs</label>
-            <input
-              id="ra-search"
-              type="search"
-              class="filter__input"
-              placeholder="Search excavator, roller, crusher…"
-              autocomplete="off"
-            />
-          </div>
-        </header>
-
-        <a class="signoff-banner" href="https://form.jotform.com/261664664769070" target="_blank" rel="noopener" aria-label="Open the Risk Assessment Sign-Off Sheet">
-          <span class="signoff-banner__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/><path d="M14.06 6.19l3.75 3.75"/></svg>
-          </span>
-          <span class="signoff-banner__body">
-            <span class="signoff-banner__title">Sign for risk assessments</span>
-            <span class="signoff-banner__sub">Tick every RA you've read and sign once. Multi-select supported.</span>
-          </span>
-          <span class="signoff-banner__cta">Open form
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
-          </span>
-        </a>
-
-        <div class="ra-groups" id="ra-groups"></div>
-      </section>
-
-      <!-- ============================================================
-           SAFE SYSTEMS OF WORK  (Tong (Bacup) Quarry SSoW)
-           ============================================================ -->
-      <section class="block" id="ssow" aria-labelledby="ssow-title">
-        <header class="block__head">
-          <div>
-            <h2 id="ssow-title" class="block__title">Safe systems of work</h2>
-            <p class="block__sub">
-              The SSoW set held at Tong (Bacup) Quarry. Read the relevant SSoW before starting any of these
-              tasks.
-            </p>
-          </div>
-          <div class="filter">
-            <label class="filter__label" for="ssow-search">Filter SSoW</label>
-            <input
-              id="ssow-search"
-              type="search"
-              class="filter__input"
-              placeholder="Search quarry, tipping, lifting…"
-              autocomplete="off"
-            />
-          </div>
-        </header>
-
-        <a class="signoff-banner" href="https://form.jotform.com/261664700548056" target="_blank" rel="noopener" aria-label="Open the Safe System of Work Sign-Off Sheet">
-          <span class="signoff-banner__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/><path d="M14.06 6.19l3.75 3.75"/></svg>
-          </span>
-          <span class="signoff-banner__body">
-            <span class="signoff-banner__title">Sign for safe systems of work</span>
-            <span class="signoff-banner__sub">Tick every SSoW you've read and sign once. Multi-select supported.</span>
-          </span>
-          <span class="signoff-banner__cta">Open form
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
-          </span>
-        </a>
-
-        <div class="grid grid--ssow" id="ssow-grid"></div>
-      </section>
-
-      <!-- ============================================================
            PERMITS, CHECKS & PROCEDURES
            ============================================================ -->
       <section class="block" id="permits" aria-labelledby="permits-title">
@@ -347,6 +267,84 @@
       </section>
 
       <!-- ============================================================
+           RISK ASSESSMENTS  (Tong (Bacup) Quarry register)
+           ============================================================ -->
+      <section class="block" id="ra" aria-labelledby="ra-title">
+        <header class="block__head">
+          <div>
+            <h2 id="ra-title" class="block__title">Risk assessment register</h2>
+            <p class="block__sub">
+              Register applies across Fox Group Quarries unless a site-specific RA is issued.
+            </p>
+          </div>
+          <div class="filter">
+            <label class="filter__label" for="ra-search">Filter RAs</label>
+            <input
+              id="ra-search"
+              type="search"
+              class="filter__input"
+              placeholder="Search excavator, roller, crusher…"
+              autocomplete="off"
+            />
+          </div>
+        </header>
+
+        <a class="signoff-banner" href="https://form.jotform.com/261664664769070" target="_blank" rel="noopener" aria-label="Open the Risk Assessment Sign-Off Sheet">
+          <span class="signoff-banner__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/><path d="M14.06 6.19l3.75 3.75"/></svg>
+          </span>
+          <span class="signoff-banner__body">
+            <span class="signoff-banner__title">Sign for risk assessments</span>
+            <span class="signoff-banner__sub">Tick every RA you've read and sign once. Multi-select supported.</span>
+          </span>
+          <span class="signoff-banner__cta">Open form
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
+          </span>
+        </a>
+
+        <div class="ra-groups" id="ra-groups"></div>
+      </section>
+
+      <!-- ============================================================
+           SAFE SYSTEMS OF WORK  (Tong (Bacup) Quarry SSoW)
+           ============================================================ -->
+      <section class="block" id="ssow" aria-labelledby="ssow-title">
+        <header class="block__head">
+          <div>
+            <h2 id="ssow-title" class="block__title">Safe systems of work</h2>
+            <p class="block__sub">
+              Read the relevant SSoW before starting any of these tasks.
+            </p>
+          </div>
+          <div class="filter">
+            <label class="filter__label" for="ssow-search">Filter SSoW</label>
+            <input
+              id="ssow-search"
+              type="search"
+              class="filter__input"
+              placeholder="Search quarry, tipping, lifting…"
+              autocomplete="off"
+            />
+          </div>
+        </header>
+
+        <a class="signoff-banner" href="https://form.jotform.com/261664700548056" target="_blank" rel="noopener" aria-label="Open the Safe System of Work Sign-Off Sheet">
+          <span class="signoff-banner__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/><path d="M14.06 6.19l3.75 3.75"/></svg>
+          </span>
+          <span class="signoff-banner__body">
+            <span class="signoff-banner__title">Sign for safe systems of work</span>
+            <span class="signoff-banner__sub">Tick every SSoW you've read and sign once. Multi-select supported.</span>
+          </span>
+          <span class="signoff-banner__cta">Open form
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
+          </span>
+        </a>
+
+        <div class="grid grid--ssow" id="ssow-grid"></div>
+      </section>
+
+      <!-- ============================================================
            REG 8 STATUTORY APPOINTMENTS — 8(1)(d) sites & 8(1)(c) managers
            ============================================================ -->
       <section class="block" id="reg8" aria-labelledby="reg8-title">
@@ -394,6 +392,6 @@
       </div>
     </footer>
 
-    <script src="app.js?v=20260720b"></script>
+    <script src="app.js?v=20260720c"></script>
   </body>
 </html>
