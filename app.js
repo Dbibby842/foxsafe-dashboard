@@ -198,6 +198,93 @@ const permits = {
   ],
 };
 
+/* ---------- Toolbox Talks — Group HSEQ library, grouped by 2026 bi-monthly calendar ---------- */
+const tbtLibrary = {
+  'Jan \u2013 Mar 2026': [
+    { code: 'TBT-016', title: '016 \u2014 Respiratory Protection', doc: 'docs/tbt/016_-_Respitory_Protection_24.pdf' },
+    { code: 'TBT-021', title: '021 \u2014 Fuel and Oil', doc: 'docs/tbt/021_-_Fuel_and_Oil_24.pdf' },
+    { code: 'TBT-025', title: '025 \u2014 Hi Visibility Clothing', doc: 'docs/tbt/025_-_Hi_Visibility_Clothing_24.pdf' },
+    { code: 'TBT-044', title: '044 \u2014 Manual Handling', doc: 'docs/tbt/044_-_Manual_Handling_24.pdf' },
+    { code: 'TBT-046', title: '046 \u2014 Fumes, Odour & Smoke', doc: 'docs/tbt/046_-_Fumes_Odour_and_Smoke_24.pdf' },
+    { code: 'TBT-053', title: '053 \u2014 Avoiding Crushing Injuries', doc: 'docs/tbt/053_-_Avoiding_Crushing_Injuries_24_.pdf' },
+    { code: 'TBT-054', title: '054 \u2014 Entering and Exiting Plant & Machinery', doc: 'docs/tbt/054_-_Entering_and_Exiting_Plant_and_Machinery_24.pdf' },
+    { code: 'TBT-055', title: '055 \u2014 Lung Health & Dust in Construction', doc: 'docs/tbt/055_-_Lung_Health_and_Dust_in_Construction_24.pdf' },
+    { code: 'TBT-056', title: '056 \u2014 Noise Pollution', doc: 'docs/tbt/056_-_Noise_Pollution_24.pdf' },
+    { code: 'TBT-062', title: '062 \u2014 Drug and Alcohol Abuse at Work', doc: 'docs/tbt/062_-_Drug_and_Alcohol_Abuse_at_Work_23.pdf' },
+    { code: 'TBT-073', title: '073 \u2014 Leptospirosis', doc: 'docs/tbt/073_-_Leptospirosis_24.pdf' },
+    { code: 'TBT-076', title: '076 \u2014 Pedestrian Safety', doc: 'docs/tbt/076_-PEDESTRIAN_SAFETY.pdf' },
+    { code: 'TBT-080', title: '080 \u2014 Wearing Seat Belts When Operating Plant', doc: 'docs/tbt/080_-_Wearing_Seat_Belts_When_Operating_Plant.pdf' },
+  ],
+  'Mar \u2013 May 2026': [
+    { code: 'TBT-010', title: '010 \u2014 Safety Awareness', doc: 'docs/tbt/010_-_Safety_Awareness_23.pdf' },
+    { code: 'TBT-014', title: '014 \u2014 Housekeeping', doc: 'docs/tbt/014_-_Housekeeping_24.pdf' },
+    { code: 'TBT-018', title: '018 \u2014 Attitude and Behaviour', doc: 'docs/tbt/018_-_Attitude_and_Behaviour_24_.pdf' },
+    { code: 'TBT-022', title: '022 \u2014 Slips, Trips & Falls', doc: 'docs/tbt/022_-_Slips_Trips_and_Falls_24.pdf' },
+    { code: 'TBT-026', title: '026 \u2014 Getting Caught', doc: 'docs/tbt/026_-_Getting_Caught_24.pdf' },
+    { code: 'TBT-029', title: '029 \u2014 Health Risks from the Sun', doc: 'docs/tbt/029_-_Health_Risks_from_the_Sun_24.pdf' },
+    { code: 'TBT-032', title: '032 \u2014 Safety in the Absence of Unreasonable Risk', doc: 'docs/tbt/032_-_Safety_in_the_Absence_of_Unreasonable_Risk_24.pdf' },
+    { code: 'TBT-035', title: '035 \u2014 CoSHH', doc: 'docs/tbt/035_-_CoSHH_24.pdf' },
+    { code: 'TBT-038', title: '038 \u2014 General Safety Legislation', doc: 'docs/tbt/038_-_General_Safety_Legislation_24.pdf' },
+    { code: 'TBT-045', title: '045 \u2014 Basic First Aid', doc: 'docs/tbt/045_-_Basic_First_Aid_24.pdf' },
+    { code: 'TBT-059', title: '059 \u2014 Cyber Safety', doc: 'docs/tbt/059_-_Cyber_Safety_24.pdf' },
+    { code: 'TBT-075', title: '075 \u2014 Hand Arm Vibration', doc: 'docs/tbt/075_-_Hand_Arm_Vibration.pdf' },
+    { code: 'TBT-079', title: '079 \u2014 Recording Accidents', doc: 'docs/tbt/079_-_Recording_Accidents_24.pdf' },
+  ],
+  'May \u2013 Jun 2026': [
+    { code: 'TBT-011', title: '011 \u2014 Hand & Power Tools', doc: 'docs/tbt/011_-_Hand_and_Power_Tools_24.pdf' },
+    { code: 'TBT-015', title: '015 \u2014 Stairways and Walkways', doc: 'docs/tbt/015_-_Stairways_and_Walkways_24.pdf' },
+    { code: 'TBT-019', title: '019 \u2014 Carelessness', doc: 'docs/tbt/019_-_Carelessness_24.pdf' },
+    { code: 'TBT-023', title: '023 \u2014 Common Causes of Accidents', doc: 'docs/tbt/023_-_Common_Causes_of_Accidents_24.pdf' },
+    { code: 'TBT-027', title: '027 \u2014 Hand Tools Safety', doc: 'docs/tbt/027_-_Hand_Tools_Safety_24.pdf' },
+    { code: 'TBT-030', title: '030 \u2014 Lesson Learnt', doc: 'docs/tbt/030_-_Lesson_Learnt_24.pdf' },
+    { code: 'TBT-060', title: '060 \u2014 Mobile Phones & Driving', doc: 'docs/tbt/060_-_Mobile_Phones_and_Driving_24.pdf' },
+    { code: 'TBT-061', title: '061 \u2014 Environmental Awareness', doc: 'docs/tbt/061_-_Environmental_Awareness_24.pdf' },
+    { code: 'TBT-063', title: '063 \u2014 Plant & Machinery', doc: 'docs/tbt/063_-_Plant_and_Machinery_24.pdf' },
+    { code: 'TBT-064', title: '064 \u2014 Waste Acceptance Process', doc: 'docs/tbt/064_-_Waste_Acceptance_Process_24.pdf' },
+    { code: 'TBT-065', title: '065 \u2014 Operating an Excavator on Slopes', doc: 'docs/tbt/065_-_Operating_an_Excavator_on_Slopes_24.pdf' },
+    { code: 'TBT-072', title: '072 \u2014 Working Near Buried Services', doc: 'docs/tbt/072_-_Working_Near_Buried_Services_23.pdf' },
+  ],
+  'Jun \u2013 Aug 2026': [
+    { code: 'TBT-013', title: '013 \u2014 Being Prepared for Emergencies', doc: 'docs/tbt/013_-_Being_Prepared_for_Emergencies_24.pdf' },
+    { code: 'TBT-017', title: '017 \u2014 Good Hygiene can keep you healthy', doc: 'docs/tbt/017_-_Good_Hygiene_can_keep_you_healthy_24.pdf' },
+    { code: 'TBT-020', title: '020 \u2014 Seatbelts', doc: 'docs/tbt/020_-_Seatbelts_24.pdf' },
+    { code: 'TBT-024', title: '024 \u2014 Falls from Height', doc: 'docs/tbt/024_-_Falls_from_Height_24.pdf' },
+    { code: 'TBT-028', title: '028 \u2014 Identifying Fatigue', doc: 'docs/tbt/028_-_Identifying_Fatigue_24.pdf' },
+    { code: 'TBT-066', title: '066 \u2014 Air Quality', doc: 'docs/tbt/066_-_Air_Quality_24.pdf' },
+    { code: 'TBT-067', title: '067 \u2014 Vehicle Wheels & Tyres', doc: 'docs/tbt/067_-_Vehicle_Wheels_and_Tyres_24.pdf' },
+    { code: 'TBT-068', title: '068 \u2014 Waiting To Be Loaded', doc: 'docs/tbt/068_-_Waiting_To_Be_Loaded_24.pdf' },
+    { code: 'TBT-069', title: '069 \u2014 Driving on Site', doc: 'docs/tbt/069_-_Driving_on_Site_24.pdf' },
+    { code: 'TBT-070', title: '070 \u2014 Near Misses', doc: 'docs/tbt/070_-_Near_Misses_24.pdf' },
+  ],
+  'Aug \u2013 Oct 2026': [
+    { code: 'TBT-012', title: '012 \u2014 Office Safety', doc: 'docs/tbt/012_-_Office_Safety_24.pdf' },
+    { code: 'TBT-040', title: '040 \u2014 First Aid Requirements', doc: 'docs/tbt/040_-_First_Aid_Requirements_24.pdf' },
+    { code: 'TBT-042', title: '042 \u2014 Pressure Washer Safety', doc: 'docs/tbt/042_-_Pressure_Washer_Safety_24.pdf' },
+    { code: 'TBT-043', title: '043 \u2014 Protect Your Hands', doc: 'docs/tbt/043_-_Protect_Your_Hands_24.pdf' },
+    { code: 'TBT-048', title: '048 \u2014 Safety Signs', doc: 'docs/tbt/048_-_Safety_Signs_24.pdf' },
+    { code: 'TBT-049', title: '049 \u2014 The Fire Triangle', doc: 'docs/tbt/049_-_The_Fire_Triangle_24.pdf' },
+    { code: 'TBT-051', title: '051 \u2014 Basic Recycling', doc: 'docs/tbt/051_-_Basic_Recycling_24.pdf' },
+    { code: 'TBT-052', title: '052 \u2014 Personal Hygiene', doc: 'docs/tbt/052_-_Personal_Hygiene_24.pdf' },
+    { code: 'TBT-057', title: '057 \u2014 Spill Control', doc: 'docs/tbt/057_-_Spill_Control_24.pdf' },
+    { code: 'TBT-058', title: '058 \u2014 Computer Eye Strain', doc: 'docs/tbt/058_-_Computer_Eye_Strain_24.pdf' },
+  ],
+  'Oct \u2013 Dec 2026': [
+    { code: 'TBT-031', title: '031 \u2014 Hard Hats & Safety Helmets', doc: 'docs/tbt/031_-_Hard_Hats_and_Safety_Helmets_24.pdf' },
+    { code: 'TBT-033', title: '033 \u2014 Lifting Safely', doc: 'docs/tbt/033_-_Lifting_Safely_24.pdf' },
+    { code: 'TBT-034', title: '034 \u2014 Who is responsible for Safety', doc: 'docs/tbt/034_-_Who_is_responsible_for_Safety_24.pdf' },
+    { code: 'TBT-036', title: '036 \u2014 Environmental Construction Nuisance', doc: 'docs/tbt/036_-_Environmental_Construction_Nuisance_24.pdf' },
+    { code: 'TBT-037', title: '037 \u2014 Excavations', doc: 'docs/tbt/037_-_Excavations_24.pdf' },
+    { code: 'TBT-039', title: '039 \u2014 Ground Contamination', doc: 'docs/tbt/039_-_Ground_Contamination_24.pdf' },
+    { code: 'TBT-041', title: '041 \u2014 Inspection of Mobile Plant & Equipment', doc: 'docs/tbt/041_-_Inspection_of_Mobile_Plant_and_Equipment_24.pdf' },
+    { code: 'TBT-047', title: '047 \u2014 Refueling Plant & Equipment', doc: 'docs/tbt/047_-_Refueling_Plant_and_Equipment_24.pdf' },
+    { code: 'TBT-050', title: '050 \u2014 Plant & Equipment General', doc: 'docs/tbt/050_-_Plant_and_Equipment_General_24.pdf' },
+    { code: 'TBT-071', title: '071 \u2014 Equality and Diversity', doc: 'docs/tbt/071_-_Equality_and_Diversity_23.pdf' },
+  ],
+  'Reference & Additional': [
+    { code: 'TBT-077', title: '077 \u2014 Welfare Facilities GP350', doc: 'docs/tbt/077_-Welfare_Facilities_GP350.pdf' },
+  ],
+};
+
 /* ----------------------------------------------------------
    Statutory Appointments — Quarries Regulations 1999
    Split into two sub-groups:
@@ -382,6 +469,38 @@ function renderPermits() {
   wrap.innerHTML = groups;
 }
 
+/* ---------- Toolbox Talks library ---------- */
+function renderTBT() {
+  const wrap = document.getElementById('tbt-groups');
+  if (!wrap) return;
+  const groups = Object.entries(tbtLibrary)
+    .map(([heading, items]) => {
+      const cards = items
+        .map(
+          (r) => `
+          <a class="ra-card" href="${esc(r.doc)}" target="_blank" rel="noopener" data-search="${esc((r.code + ' ' + r.title).toLowerCase())}" aria-label="Open ${esc(r.title)}">
+            <span class="ra-card__code">${esc(r.code)}</span>
+            <h4 class="ra-card__title">${esc(r.title)}</h4>
+            <span class="card-doc-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>
+            </span>
+          </a>`,
+        )
+        .join('');
+      const slug = heading.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+      return `
+        <section id="grp-tbt-${slug}" class="ra-group" data-group="${esc(heading.toLowerCase())}">
+          <h3 class="ra-group__title">
+            ${esc(heading)}
+            <span class="ra-group__count">${items.length}</span>
+          </h3>
+          <div class="grid grid--ra">${cards}</div>
+        </section>`;
+    })
+    .join('');
+  wrap.innerHTML = groups;
+}
+
 /* ---------- Reg 8 Supervisor Appointments (grouped) ---------- */
 function reg8Card(r) {
   const searchBlob = [r.code, r.title, r.manager, r.role, r.scope, r.substitute]
@@ -508,6 +627,7 @@ renderSites();
 renderRA();
 renderSSoW();
 renderPermits();
+renderTBT();
 renderReg8();
 // renderInductions();  // section removed
 
@@ -515,6 +635,7 @@ wireFilter('site-search', '.site-card');
 wireFilter('ra-search', '#ra-groups .ra-card', '#ra-groups .ra-group');
 wireFilter('ssow-search', '#ssow-grid .ssow-card');
 wireFilter('prm-search', '#prm-groups .ra-card', '#prm-groups .ra-group');
+wireFilter('tbt-search', '#tbt-groups .ra-card', '#tbt-groups .ra-group');
 wireFilter('reg8-search', '#reg8-groups .ssow-card', '#reg8-groups .reg8-group');
 
 /* Active nav-link on scroll + click */
