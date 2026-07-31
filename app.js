@@ -133,6 +133,62 @@ const ssow = [
   { code: 'SSoW-063', title: 'Working in a Quarry', doc: 'docs/SSoW-063.pdf' },
 ];
 
+/* ---------- First Aiders (per quarry) ---------- */
+/* EFAW = Emergency First Aid at Work (1-day); FAW = First Aid at Work (3-day). */
+const firstAiders = [
+  {
+    id: 'tong',
+    name: 'Tong (Bacup) Quarry',
+    location: 'Tong, Lancashire',
+    accent: 'amber',
+    people: [
+      { name: 'James Smalley',   qualification: 'FAW',  expiry: '27 Aug 2027', doc: 'docs/first-aid/James-Smalley-FAW-Tong-Quarry-Exp-27-08-2027.pdf' },
+      { name: 'Barry Thompson',  qualification: 'EFAW', expiry: '27 Aug 2027', doc: 'docs/first-aid/Barry-Thompson-EFAW-Tong-Quarry-Exp-27-08-2027.pdf' },
+      { name: 'David Singleton', qualification: 'EFAW', expiry: '27 Aug 2027', doc: 'docs/first-aid/David-Singleton-EFAW-Tong-Quarry-Exp-27-08-2027.pdf' },
+    ],
+  },
+  {
+    id: 'ellel',
+    name: 'Ellel Crag Quarry',
+    location: 'Ellel, Lancashire',
+    accent: 'amber',
+    people: [
+      { name: 'Tom Inman', qualification: 'EFAW', expiry: '21 May 2028', doc: 'docs/first-aid/Tom-Inman-EFAW-Ellel-Crag-Quarry-Exp-21-05-2028.pdf' },
+    ],
+  },
+  {
+    id: 'lydiate',
+    name: 'Lydiate Lane Quarry',
+    location: 'Lydiate Lane, Lancashire',
+    accent: 'amber',
+    people: [
+      { name: 'Piotr Slojewski',  qualification: 'EFAW', expiry: '07 May 2028', doc: 'docs/first-aid/Piotr-Slojewski-EFAW-Lydiate-Lane-Quarry-Exp-07-05-2028.pdf' },
+      { name: 'Julata Slojewska', qualification: 'EFAW', expiry: '07 May 2028', doc: 'docs/first-aid/Julata-Slojewska-EFAW-Lydiate-Lane-Quarry-Exp-07-05-2028.pdf' },
+    ],
+  },
+  {
+    id: 'bradleys',
+    name: "Bradley's Sandpit Quarry",
+    location: "Bradley's Sandpit",
+    accent: 'lime',
+    people: [
+      { name: 'Charlie Powell',  qualification: 'EFAW', expiry: '01 Dec 2028', doc: 'docs/first-aid/Charlie-Powell-EFAW-Bradleys-Sand-Pit-Exp-01-12-2028.pdf' },
+      { name: 'Damian Thompson', qualification: 'EFAW', expiry: '01 Dec 2028', doc: 'docs/first-aid/Damian-Thompson-EFAW-Bradleys-Sand-Pit-Exp-01-12-2028.pdf' },
+      { name: 'Calum Stazicker', qualification: 'EFAW', expiry: '09 Dec 2028', doc: 'docs/first-aid/Calum-Stazicker-EFAW-Bradleys-Sand-Pit-Exp-09-12-2028.pdf' },
+      { name: 'Joe Jackson',     qualification: 'EFAW', expiry: '09 Dec 2028', doc: 'docs/first-aid/Joe-Jackson-EFAW-Bradleys-Sand-Pit-Exp-09-12-2028.pdf' },
+    ],
+  },
+  {
+    id: 'woods',
+    name: 'Woods Waste Landfill',
+    location: 'Woods Waste',
+    accent: 'navy',
+    people: [
+      { name: 'Richard Semple', qualification: 'EFAW', expiry: '27 Aug 2027', doc: 'docs/first-aid/Richard-Semple-EFAW-Woods-Waste-Landfill-Exp-27-08-2027.pdf' },
+    ],
+  },
+];
+
 /* ---------- Permits, Checks & Procedures ---------- */
 const permits = {
   'Health and Safety Policy & Insurance': [
@@ -437,6 +493,52 @@ function renderRA() {
   wrap.innerHTML = groups;
 }
 
+/* ---------- First Aiders (per quarry) ---------- */
+function renderFirstAiders() {
+  const grid = document.getElementById('first-aid-grid');
+  if (!grid) return;
+  grid.innerHTML = firstAiders
+    .map((s) => {
+      const search = (s.name + ' ' + s.location + ' ' + s.people.map((p) => p.name).join(' ')).toLowerCase();
+      const peopleHtml = s.people
+        .map(
+          (p) => `
+            <li class="fa-row">
+              <a class="fa-row__link" href="${esc(p.doc)}" target="_blank" rel="noopener" aria-label="Open first-aid certificate for ${esc(p.name)}">
+                <span class="fa-row__name">${esc(p.name)}</span>
+                <span class="fa-row__meta">
+                  <span class="fa-row__qual" title="${p.qualification === 'FAW' ? 'First Aid at Work (3-day)' : 'Emergency First Aid at Work (1-day)'}">${esc(p.qualification)}</span>
+                  <span class="fa-row__exp">Exp ${esc(p.expiry)}</span>
+                  <svg class="fa-row__icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>
+                </span>
+              </a>
+            </li>`,
+        )
+        .join('');
+      const count = s.people.length;
+      return `
+        <article class="site-card site-card--${esc(s.accent)} fa-card" role="listitem" data-search="${esc(search)}">
+          <details class="fa-details">
+            <summary class="fa-summary">
+              <div class="site-card__head">
+                <div>
+                  <h3 class="site-card__name">${esc(s.name)}</h3>
+                  <p class="site-card__loc">${esc(s.location)}</p>
+                </div>
+                <span class="site-card__tag">${count} first aider${count === 1 ? '' : 's'}</span>
+              </div>
+              <span class="fa-summary__hint">
+                <span class="fa-summary__label" aria-hidden="true"></span>
+                <svg class="fa-summary__chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </summary>
+            <ul class="fa-list">${peopleHtml}</ul>
+          </details>
+        </article>`;
+    })
+    .join('');
+}
+
 /* ---------- Permits, Checks & Procedures groups ---------- */
 function renderPermits() {
   const wrap = document.getElementById('prm-groups');
@@ -653,6 +755,7 @@ function wireFilter(inputId, itemSelector, groupSelector) {
    INIT
    ============================================================ */
 renderSites();
+renderFirstAiders();
 renderRA();
 renderSSoW();
 renderPermits();
@@ -661,6 +764,7 @@ renderReg8();
 // renderInductions();  // section removed
 
 wireFilter('site-search', '.site-card');
+wireFilter('fa-search', '#first-aid-grid .fa-card');
 wireFilter('ra-search', '#ra-groups .ra-card', '#ra-groups .ra-group');
 wireFilter('ssow-search', '#ssow-grid .ssow-card');
 wireFilter('prm-search', '#prm-groups .ra-card', '#prm-groups .ra-group');

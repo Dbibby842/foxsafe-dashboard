@@ -637,6 +637,133 @@ textarea {
 }
 
 /* ============================================================
+   FIRST AIDER CARDS (expandable, built on .site-card)
+   ============================================================ */
+.fa-card {
+  padding: 0;
+}
+.fa-details {
+  padding: 1.4rem 1.4rem 1.2rem;
+}
+.fa-details[open] {
+  padding-bottom: 1rem;
+}
+.fa-summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+.fa-summary::-webkit-details-marker {
+  display: none;
+}
+.fa-summary:focus-visible {
+  outline: 2px solid var(--fox-navy);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm, 6px);
+}
+.fa-summary__hint {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding-top: 0.6rem;
+  border-top: 1px dashed var(--color-divider);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.fa-summary__chev {
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+.fa-details[open] .fa-summary__chev {
+  transform: rotate(180deg);
+}
+.fa-summary__label {
+  display: inline-block;
+}
+.fa-summary__label::after {
+  content: 'Show certificates';
+}
+.fa-details[open] .fa-summary__label::after {
+  content: 'Hide certificates';
+}
+.fa-list {
+  list-style: none;
+  margin: 0.9rem 0 0;
+  padding: 0.6rem 0 0;
+  border-top: 1px dashed var(--color-divider);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.fa-row {
+  margin: 0;
+}
+.fa-row__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  padding: 0.55rem 0.55rem;
+  margin: 0 -0.55rem;
+  border-radius: var(--radius-md, 8px);
+  color: var(--color-text);
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+.fa-row__link:hover,
+.fa-row__link:focus-visible {
+  background: var(--color-surface-offset);
+  color: var(--fox-navy);
+  outline: none;
+}
+[data-theme='dark'] .fa-row__link:hover,
+[data-theme='dark'] .fa-row__link:focus-visible {
+  color: var(--fox-amber);
+}
+.fa-row__name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.fa-row__meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+.fa-row__qual {
+  display: inline-block;
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-offset);
+  color: var(--color-text-muted);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+.fa-row__exp {
+  white-space: nowrap;
+}
+.fa-row__icon {
+  opacity: 0.6;
+  transition: opacity 0.15s;
+}
+.fa-row__link:hover .fa-row__icon,
+.fa-row__link:focus-visible .fa-row__icon {
+  opacity: 1;
+}
+
+/* ============================================================
    RA GROUPS
    ============================================================ */
 .ra-groups {

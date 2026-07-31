@@ -41,6 +41,7 @@
 
         <nav class="app-nav" aria-label="Primary">
           <a class="app-nav__link is-active" href="#sites">Sites</a>
+          <a class="app-nav__link" href="#first-aid">First aiders</a>
           <a class="app-nav__link" href="#permits">Permits &amp; checks</a>
           <a class="app-nav__link" href="#tbt">Toolbox talks</a>
           <a class="app-nav__link" href="#ra">Risk assessments</a>
@@ -134,6 +135,10 @@
               <span class="stat__label">Safe systems of work</span>
             </div>
             <div class="stat">
+              <span class="stat__num">11</span>
+              <span class="stat__label">Trained first aiders</span>
+            </div>
+            <div class="stat">
               <span class="stat__num">22</span>
               <span class="stat__label">Permits, checks &amp; procedures</span>
             </div>
@@ -170,6 +175,34 @@
         </header>
 
         <div class="grid grid--sites" id="site-grid" role="list"></div>
+      </section>
+
+      <!-- ============================================================
+           FIRST AIDERS
+           ============================================================ -->
+      <section class="block" id="first-aid" aria-labelledby="first-aid-title">
+        <header class="block__head">
+          <div>
+            <h2 id="first-aid-title" class="block__title">First aiders</h2>
+            <p class="block__sub">
+              Trained first aiders on each site. Tap a quarry card to reveal the team and open any
+              certificate. <strong>EFAW</strong> = Emergency First Aid at Work (1&#8209;day);
+              <strong>FAW</strong> = First Aid at Work (3&#8209;day).
+            </p>
+          </div>
+          <div class="filter">
+            <label class="filter__label" for="fa-search">Find a first aider</label>
+            <input
+              id="fa-search"
+              type="search"
+              class="filter__input"
+              placeholder="Search site or name…"
+              autocomplete="off"
+            />
+          </div>
+        </header>
+
+        <div class="grid grid--sites" id="first-aid-grid" role="list"></div>
       </section>
 
       <!-- ============================================================
