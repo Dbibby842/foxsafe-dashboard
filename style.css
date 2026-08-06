@@ -1483,3 +1483,21 @@ textarea {
     font-size: 0.82rem;
   }
 }
+
+/* Management-diagram PDF embed */
+.pdf-embed {
+  margin-top: 1rem;
+  border: 1px solid var(--border, #d4d1ca);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #f7f6f2;
+}
+.pdf-embed object {
+  display: block;
+  width: 100%;
+  min-height: 640px;
+  border: 0;
+}
+@media (max-width: 720px) {
+  .pdf-embed object { min-height: 460px; height: 460px; }
+}
