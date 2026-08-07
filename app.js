@@ -225,9 +225,10 @@ const permits = {
     { code: 'PTW-16', title: 'Permit to Dig', doc: 'https://form.jotform.com/261662564334358?docType=Permit%20to%20Work%20%E2%80%94%20Dig' },
     { code: 'SWM', title: 'Surface Water Management Checklist', doc: 'https://form.jotform.com/261662564334358?docType=Surface%20Water%20Management%20Checklist' },
   ],
-  'Inspections': [
+  'Inspections / Start ups': [
     { code: 'INS', title: 'Daily Recycling Yard / Tip Inspection', doc: 'https://form.jotform.com/251733443036351' },
     { code: 'INS', title: 'Weekly Inspection Report', doc: 'https://form.jotform.com/251683874798075' },
+    { code: 'CHK', title: 'Wash Plant Start-Up Checklist — CDE 200tph C&D', doc: 'https://form.jotform.com/262182827123051' },
   ],
   'Rules & Procedures': [
     { code: 'PRC', title: 'Daily Briefing (V2)', doc: 'https://form.jotform.com/261662564334358?docType=Daily%20Pre-Start%20Briefing' },
@@ -547,35 +548,27 @@ function renderFirstAiders() {
 }
 
 /* ---------- Permits, Checks & Procedures groups ---------- */
+/* Each group renders into its own mount point (id="prm-mount-<slug>") so groups
+   can sit as separate top-level sections in the page. */
 function renderPermits() {
-  const wrap = document.getElementById('prm-groups');
-  if (!wrap) return;
-  const groups = Object.entries(permits)
-    .map(([heading, items]) => {
-      const cards = items
-        .map(
-          (r) => `
-          <a class="ra-card" href="${esc(r.doc)}" target="_blank" rel="noopener" data-search="${esc((r.code + ' ' + r.title).toLowerCase())}" aria-label="Open ${esc(r.title)}">
-            <span class="ra-card__code">${esc(r.code)}</span>
-            <h4 class="ra-card__title">${esc(r.title)}</h4>
-            <span class="card-doc-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>
-            </span>
-          </a>`,
-        )
-        .join('');
-      const slug = heading.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-      return `
-        <section id="grp-${slug}" class="ra-group" data-group="${esc(heading.toLowerCase())}">
-          <h3 class="ra-group__title">
-            ${esc(heading)}
-            <span class="ra-group__count">${items.length}</span>
-          </h3>
-          <div class="grid grid--ra">${cards}</div>
-        </section>`;
-    })
-    .join('');
-  wrap.innerHTML = groups;
+  Object.entries(permits).forEach(([heading, items]) => {
+    const slug = heading.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    const wrap = document.getElementById(`prm-mount-${slug}`);
+    if (!wrap) return;
+    const cards = items
+      .map(
+        (r) => `
+        <a class="ra-card" href="${esc(r.doc)}" target="_blank" rel="noopener" data-search="${esc((r.code + ' ' + r.title).toLowerCase())}" aria-label="Open ${esc(r.title)}">
+          <span class="ra-card__code">${esc(r.code)}</span>
+          <h4 class="ra-card__title">${esc(r.title)}</h4>
+          <span class="card-doc-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>
+          </span>
+        </a>`,
+      )
+      .join('');
+    wrap.innerHTML = `<div class="grid grid--ra">${cards}</div>`;
+  });
 }
 
 /* ---------- Toolbox Talks library ---------- */
@@ -774,7 +767,11 @@ wireFilter('site-search', '.site-card');
 wireFilter('fa-search', '#first-aid-grid .fa-card');
 wireFilter('ra-search', '#ra-groups .ra-card', '#ra-groups .ra-group');
 wireFilter('ssow-search', '#ssow-grid .ssow-card');
-wireFilter('prm-search', '#prm-groups .ra-card', '#prm-groups .ra-group');
+// One search filter per permits sub-group, wired to its own input + mount point.
+Object.keys(permits).forEach((heading) => {
+  const slug = heading.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  wireFilter(`prm-${slug}-search`, `#prm-mount-${slug} .ra-card`);
+});
 wireFilter('tbt-search', '#tbt-groups .ra-card', '#tbt-groups .ra-group');
 wireFilter('reg8-search', '#reg8-groups .ssow-card', '#reg8-groups .reg8-group');
 

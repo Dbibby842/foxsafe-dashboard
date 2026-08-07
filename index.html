@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css?v=20260807b" />
+    <link rel="stylesheet" href="style.css?v=20260807c" />
     <link
       rel="icon"
       href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230d1d4d'/><path d='M9 22 V10 H21 V12.6 H12 V15.6 H19 V18.2 H12 V22 Z' fill='%23f6a51a'/></svg>"
@@ -40,19 +40,22 @@
         </a>
 
         <nav class="app-nav" aria-label="Primary">
-          <a class="app-nav__link is-active" href="#sites">Sites</a>
-          <a class="app-nav__link" href="#management-diagram">Management diagram</a>
+          <a class="app-nav__link is-active" href="#sites">Quarry inductions</a>
+          <a class="app-nav__link" href="#management-diagram">Quarries management</a>
+          <a class="app-nav__link" href="#incident-reporting">Accident &amp; Near Miss</a>
           <a class="app-nav__link" href="#first-aid">First aiders</a>
-          <a class="app-nav__link" href="#incident-reporting">Incident &amp; reporting</a>
-          <a class="app-nav__link" href="#reg8">Reg 8 appointments</a>
-          <a class="app-nav__link" href="#permits">Permits &amp; checks</a>
-          <a class="app-nav__link" href="#tbt">Toolbox talks</a>
-          <a class="app-nav__link" href="#ra">Risk assessments</a>
-          <a class="app-nav__link" href="#ssow">Safe systems of work</a>
           <a class="app-nav__link" href="#grp-health-and-safety-policy-insurance">H&amp;S Policy &amp; Insurance</a>
+          <a class="app-nav__link" href="#grp-inspections-start-ups">Inspections / Start ups</a>
+          <a class="app-nav__link" href="#grp-plant-check-sheets">Plant Check Sheets</a>
+          <a class="app-nav__link" href="#grp-permits-to-work">Permits to Work</a>
+          <a class="app-nav__link" href="#grp-rules-procedures">Rules &amp; Procedures</a>
           <a class="app-nav__link" href="#grp-traffic-management">Traffic Management</a>
+          <a class="app-nav__link" href="#ra">Risk assessment register</a>
+          <a class="app-nav__link" href="#ssow">Safe systems of work</a>
+          <a class="app-nav__link" href="#tbt">Toolbox talks</a>
           <a class="app-nav__link" href="#grp-geotechnical">Geotechnical</a>
           <a class="app-nav__link" href="#grp-environmental">Environmental</a>
+          <a class="app-nav__link" href="#reg8">Statutory supervisor appointments</a>
         </nav>
 
         <div class="app-header__controls">
@@ -119,7 +122,7 @@
               date by the safety team.
             </p>
             <div class="hero__cta">
-              <a class="btn btn--primary" href="#sites">View sites</a>
+              <a class="btn btn--primary" href="#sites">Quarry inductions</a>
               <a class="btn btn--ghost" href="#ra">Risk register</a>
             </div>
           </div>
@@ -141,7 +144,7 @@
               <span class="stat__label">Trained first aiders</span>
             </div>
             <div class="stat">
-              <span class="stat__num">22</span>
+              <span class="stat__num">23</span>
               <span class="stat__label">Permits, checks &amp; procedures</span>
             </div>
             <div class="stat">
@@ -153,12 +156,12 @@
       </section>
 
       <!-- ============================================================
-           SITES
+           1. QUARRY INDUCTIONS
            ============================================================ -->
       <section class="block" id="sites" aria-labelledby="sites-title">
         <header class="block__head">
           <div>
-            <h2 id="sites-title" class="block__title">Quarry sites</h2>
+            <h2 id="sites-title" class="block__title">Quarry inductions</h2>
             <p class="block__sub">
               Tap a site to open its induction form, risk-assessment register and safe system of
               works.
@@ -180,12 +183,12 @@
       </section>
 
       <!-- ============================================================
-           MANAGEMENT DIAGRAM (click-through card)
+           2. QUARRIES MANAGEMENT
            ============================================================ -->
       <section class="block" id="management-diagram" aria-labelledby="management-diagram-title">
         <header class="block__head">
           <div>
-            <h2 id="management-diagram-title" class="block__title">Quarries management diagram</h2>
+            <h2 id="management-diagram-title" class="block__title">Quarries management</h2>
             <p class="block__sub">
               Fox Group Quarries management structure — statutory Reg 8(1)(c) appointed managers
               and Reg 8(1)(d) site supervisors across Ellel Crag, Lydiate Lane, Tong (Bacup),
@@ -224,40 +227,12 @@
       </section>
 
       <!-- ============================================================
-           FIRST AIDERS
-           ============================================================ -->
-      <section class="block" id="first-aid" aria-labelledby="first-aid-title">
-        <header class="block__head">
-          <div>
-            <h2 id="first-aid-title" class="block__title">First aiders</h2>
-            <p class="block__sub">
-              Trained first aiders on each site. Tap a quarry card to reveal the team and open any
-              certificate. <strong>EFAW</strong> = Emergency First Aid at Work (1&#8209;day);
-              <strong>FAW</strong> = First Aid at Work (3&#8209;day).
-            </p>
-          </div>
-          <div class="filter">
-            <label class="filter__label" for="fa-search">Find a first aider</label>
-            <input
-              id="fa-search"
-              type="search"
-              class="filter__input"
-              placeholder="Search site or name…"
-              autocomplete="off"
-            />
-          </div>
-        </header>
-
-        <div class="grid grid--sites" id="first-aid-grid" role="list"></div>
-      </section>
-
-      <!-- ============================================================
-           INCIDENT & REPORTING (paired with First Aiders)
+           3. ACCIDENT & NEAR MISS REPORTING
            ============================================================ -->
       <section class="block" id="incident-reporting" aria-labelledby="incident-reporting-title">
         <header class="block__head">
           <div>
-            <h2 id="incident-reporting-title" class="block__title">Incident &amp; reporting</h2>
+            <h2 id="incident-reporting-title" class="block__title">Accident &amp; Near Miss Reporting</h2>
             <p class="block__sub">
               Accident, near-miss and dangerous-occurrence reporting. Use the online forms for
               live reports; the procedure and flowchart PDFs set out the steps and escalation route.
@@ -345,61 +320,268 @@
       </section>
 
       <!-- ============================================================
-           REG 8 STATUTORY APPOINTMENTS — 8(1)(d) sites & 8(1)(c) managers
+           4. FIRST AIDERS
            ============================================================ -->
-      <section class="block" id="reg8" aria-labelledby="reg8-title">
+      <section class="block" id="first-aid" aria-labelledby="first-aid-title">
         <header class="block__head">
           <div>
-            <h2 id="reg8-title" class="block__title">Statutory supervisor appointments</h2>
+            <h2 id="first-aid-title" class="block__title">First aiders</h2>
             <p class="block__sub">
-              Site supervisor appointments under regulation 8(1)(d) and appointed
-              competent managers under regulation 8(1)(c) of the Quarries Regulations 1999.
+              Trained first aiders on each site. Tap a quarry card to reveal the team and open any
+              certificate. <strong>EFAW</strong> = Emergency First Aid at Work (1&#8209;day);
+              <strong>FAW</strong> = First Aid at Work (3&#8209;day).
             </p>
           </div>
           <div class="filter">
-            <label class="filter__label" for="reg8-search">Filter sites</label>
+            <label class="filter__label" for="fa-search">Find a first aider</label>
             <input
-              id="reg8-search"
+              id="fa-search"
               type="search"
               class="filter__input"
-              placeholder="Search sites or managers — Barry Thompson, Roy Underwood…"
+              placeholder="Search site or name…"
               autocomplete="off"
             />
           </div>
         </header>
 
-        <div class="ra-groups reg8-groups" id="reg8-groups"></div>
+        <div class="grid grid--sites" id="first-aid-grid" role="list"></div>
       </section>
 
       <!-- ============================================================
-           PERMITS, CHECKS & PROCEDURES
+           5. HEALTH AND SAFETY POLICY & INSURANCE
            ============================================================ -->
-      <section class="block" id="permits" aria-labelledby="permits-title">
+      <section class="block" id="grp-health-and-safety-policy-insurance" aria-labelledby="pol-title">
         <header class="block__head">
           <div>
-            <h2 id="permits-title" class="block__title">Permits, checks &amp; procedures</h2>
+            <h2 id="pol-title" class="block__title">Health and Safety Policy &amp; Insurance</h2>
             <p class="block__sub">
-              Permits-to-work, daily/weekly plant check sheets, incident reporting forms and site
-              rules. Print, fill in, or open on a phone at the gate.
+              Group H&amp;S policy statements and current insurance certificates for the operating
+              companies. Open on a phone at the gate or print for the site file.
             </p>
           </div>
           <div class="filter">
-            <label class="filter__label" for="prm-search">Filter documents</label>
+            <label class="filter__label" for="prm-health-and-safety-policy-insurance-search">Filter documents</label>
             <input
-              id="prm-search"
+              id="prm-health-and-safety-policy-insurance-search"
               type="search"
               class="filter__input"
-              placeholder="Search permit, check sheet, near miss…"
+              placeholder="Search policy, insurance…"
+              autocomplete="off"
+            />
+          </div>
+        </header>
+        <div id="prm-mount-health-and-safety-policy-insurance"></div>
+      </section>
+
+      <!-- ============================================================
+           6. INSPECTIONS / START UPS
+           ============================================================ -->
+      <section class="block" id="grp-inspections-start-ups" aria-labelledby="ins-title">
+        <header class="block__head">
+          <div>
+            <h2 id="ins-title" class="block__title">Inspections / Start ups</h2>
+            <p class="block__sub">
+              Daily and weekly plant/tip inspections, plus plant start-up checklists.
+            </p>
+          </div>
+          <div class="filter">
+            <label class="filter__label" for="prm-inspections-start-ups-search">Filter documents</label>
+            <input
+              id="prm-inspections-start-ups-search"
+              type="search"
+              class="filter__input"
+              placeholder="Search inspection, start-up…"
+              autocomplete="off"
+            />
+          </div>
+        </header>
+        <div id="prm-mount-inspections-start-ups"></div>
+      </section>
+
+      <!-- ============================================================
+           7. PLANT CHECK SHEETS
+           ============================================================ -->
+      <section class="block" id="grp-plant-check-sheets" aria-labelledby="chk-title">
+        <header class="block__head">
+          <div>
+            <h2 id="chk-title" class="block__title">Plant Check Sheets</h2>
+            <p class="block__sub">
+              Daily and weekly check sheets for excavators, loading shovels, dumpers, dozers,
+              crushers and screeners. Submit direct on a phone or tablet.
+            </p>
+          </div>
+          <div class="filter">
+            <label class="filter__label" for="prm-plant-check-sheets-search">Filter documents</label>
+            <input
+              id="prm-plant-check-sheets-search"
+              type="search"
+              class="filter__input"
+              placeholder="Search excavator, dumper, crusher…"
+              autocomplete="off"
+            />
+          </div>
+        </header>
+        <div id="prm-mount-plant-check-sheets"></div>
+      </section>
+
+      <!-- ============================================================
+           8. PERMITS TO WORK
+           ============================================================ -->
+      <section class="block" id="grp-permits-to-work" aria-labelledby="ptw-title">
+        <header class="block__head">
+          <div>
+            <h2 id="ptw-title" class="block__title">Permits to Work</h2>
+            <p class="block__sub">
+              General, hot works, working at height, permit to dig and surface-water management
+              permits. Issued before the task starts.
+            </p>
+          </div>
+          <div class="filter">
+            <label class="filter__label" for="prm-permits-to-work-search">Filter permits</label>
+            <input
+              id="prm-permits-to-work-search"
+              type="search"
+              class="filter__input"
+              placeholder="Search permit, hot works, dig…"
+              autocomplete="off"
+            />
+          </div>
+        </header>
+        <div id="prm-mount-permits-to-work"></div>
+      </section>
+
+      <!-- ============================================================
+           9. RULES & PROCEDURES
+           ============================================================ -->
+      <section class="block" id="grp-rules-procedures" aria-labelledby="prc-title">
+        <header class="block__head">
+          <div>
+            <h2 id="prc-title" class="block__title">Rules &amp; Procedures</h2>
+            <p class="block__sub">
+              Daily briefing, general conduct, vehicle rules, spill response and Safe Quarry master
+              procedure. Applies to all Fox Group Quarries sites.
+            </p>
+          </div>
+          <div class="filter">
+            <label class="filter__label" for="prm-rules-procedures-search">Filter procedures</label>
+            <input
+              id="prm-rules-procedures-search"
+              type="search"
+              class="filter__input"
+              placeholder="Search rule, procedure, briefing…"
+              autocomplete="off"
+            />
+          </div>
+        </header>
+        <div id="prm-mount-rules-procedures"></div>
+      </section>
+
+      <!-- ============================================================
+           10. TRAFFIC MANAGEMENT
+           ============================================================ -->
+      <section class="block" id="grp-traffic-management" aria-labelledby="tmp-title">
+        <header class="block__head">
+          <div>
+            <h2 id="tmp-title" class="block__title">Traffic Management</h2>
+            <p class="block__sub">
+              Site-specific traffic management plans for each active quarry. Read before working
+              in or around vehicle routes.
+            </p>
+          </div>
+          <div class="filter">
+            <label class="filter__label" for="prm-traffic-management-search">Filter plans</label>
+            <input
+              id="prm-traffic-management-search"
+              type="search"
+              class="filter__input"
+              placeholder="Search Bradleys, Ellel, Lydiate, Tong…"
+              autocomplete="off"
+            />
+          </div>
+        </header>
+        <div id="prm-mount-traffic-management"></div>
+      </section>
+
+      <!-- ============================================================
+           11. RISK ASSESSMENT REGISTER
+           ============================================================ -->
+      <section class="block" id="ra" aria-labelledby="ra-title">
+        <header class="block__head">
+          <div>
+            <h2 id="ra-title" class="block__title">Risk assessment register</h2>
+            <p class="block__sub">
+              Register applies across Fox Group Quarries unless a site-specific RA is issued.
+            </p>
+          </div>
+          <div class="filter">
+            <label class="filter__label" for="ra-search">Filter RAs</label>
+            <input
+              id="ra-search"
+              type="search"
+              class="filter__input"
+              placeholder="Search excavator, roller, crusher…"
               autocomplete="off"
             />
           </div>
         </header>
 
-        <div class="ra-groups" id="prm-groups"></div>
+        <a class="signoff-banner" href="https://form.jotform.com/261664664769070" target="_blank" rel="noopener" aria-label="Open the Risk Assessment Sign-Off Sheet">
+          <span class="signoff-banner__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/><path d="M14.06 6.19l3.75 3.75"/></svg>
+          </span>
+          <span class="signoff-banner__body">
+            <span class="signoff-banner__title">Sign for risk assessments</span>
+            <span class="signoff-banner__sub">Tick every RA you've read and sign once. Multi-select supported.</span>
+          </span>
+          <span class="signoff-banner__cta">Open form
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
+          </span>
+        </a>
+
+        <div class="ra-groups" id="ra-groups"></div>
       </section>
 
       <!-- ============================================================
-           TOOLBOX TALKS
+           12. SAFE SYSTEMS OF WORK
+           ============================================================ -->
+      <section class="block" id="ssow" aria-labelledby="ssow-title">
+        <header class="block__head">
+          <div>
+            <h2 id="ssow-title" class="block__title">Safe systems of work</h2>
+            <p class="block__sub">
+              Read the relevant SSoW before starting any of these tasks.
+            </p>
+          </div>
+          <div class="filter">
+            <label class="filter__label" for="ssow-search">Filter SSoW</label>
+            <input
+              id="ssow-search"
+              type="search"
+              class="filter__input"
+              placeholder="Search quarry, tipping, lifting…"
+              autocomplete="off"
+            />
+          </div>
+        </header>
+
+        <a class="signoff-banner" href="https://form.jotform.com/261664700548056" target="_blank" rel="noopener" aria-label="Open the Safe System of Work Sign-Off Sheet">
+          <span class="signoff-banner__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/><path d="M14.06 6.19l3.75 3.75"/></svg>
+          </span>
+          <span class="signoff-banner__body">
+            <span class="signoff-banner__title">Sign for safe systems of work</span>
+            <span class="signoff-banner__sub">Tick every SSoW you've read and sign once. Multi-select supported.</span>
+          </span>
+          <span class="signoff-banner__cta">Open form
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
+          </span>
+        </a>
+
+        <div class="grid grid--ssow" id="ssow-grid"></div>
+      </section>
+
+      <!-- ============================================================
+           13. TOOLBOX TALKS
            ============================================================ -->
       <section class="block" id="tbt" aria-labelledby="tbt-title">
         <header class="block__head">
@@ -417,7 +599,7 @@
               id="tbt-search"
               type="search"
               class="filter__input"
-              placeholder="Search e.g. dust, seatbelt, manual handling\u2026"
+              placeholder="Search e.g. dust, seatbelt, manual handling…"
               autocomplete="off"
             />
           </div>
@@ -466,81 +648,81 @@
       </section>
 
       <!-- ============================================================
-           RISK ASSESSMENTS  (Tong (Bacup) Quarry register)
+           14. GEOTECHNICAL
            ============================================================ -->
-      <section class="block" id="ra" aria-labelledby="ra-title">
+      <section class="block" id="grp-geotechnical" aria-labelledby="geo-title">
         <header class="block__head">
           <div>
-            <h2 id="ra-title" class="block__title">Risk assessment register</h2>
+            <h2 id="geo-title" class="block__title">Geotechnical</h2>
             <p class="block__sub">
-              Register applies across Fox Group Quarries unless a site-specific RA is issued.
+              Geotechnical assessment reports and tip/excavation safety procedures for each active
+              quarry.
             </p>
           </div>
           <div class="filter">
-            <label class="filter__label" for="ra-search">Filter RAs</label>
+            <label class="filter__label" for="prm-geotechnical-search">Filter reports</label>
             <input
-              id="ra-search"
+              id="prm-geotechnical-search"
               type="search"
               class="filter__input"
-              placeholder="Search excavator, roller, crusher…"
+              placeholder="Search Bradleys, Ellel, Lydiate, Tong…"
               autocomplete="off"
             />
           </div>
         </header>
-
-        <a class="signoff-banner" href="https://form.jotform.com/261664664769070" target="_blank" rel="noopener" aria-label="Open the Risk Assessment Sign-Off Sheet">
-          <span class="signoff-banner__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/><path d="M14.06 6.19l3.75 3.75"/></svg>
-          </span>
-          <span class="signoff-banner__body">
-            <span class="signoff-banner__title">Sign for risk assessments</span>
-            <span class="signoff-banner__sub">Tick every RA you've read and sign once. Multi-select supported.</span>
-          </span>
-          <span class="signoff-banner__cta">Open form
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
-          </span>
-        </a>
-
-        <div class="ra-groups" id="ra-groups"></div>
+        <div id="prm-mount-geotechnical"></div>
       </section>
 
       <!-- ============================================================
-           SAFE SYSTEMS OF WORK  (Tong (Bacup) Quarry SSoW)
+           15. ENVIRONMENTAL
            ============================================================ -->
-      <section class="block" id="ssow" aria-labelledby="ssow-title">
+      <section class="block" id="grp-environmental" aria-labelledby="env-title">
         <header class="block__head">
           <div>
-            <h2 id="ssow-title" class="block__title">Safe systems of work</h2>
+            <h2 id="env-title" class="block__title">Environmental</h2>
             <p class="block__sub">
-              Read the relevant SSoW before starting any of these tasks.
+              Dust management plans per site and the group Environmental Procedures Plan.
             </p>
           </div>
           <div class="filter">
-            <label class="filter__label" for="ssow-search">Filter SSoW</label>
+            <label class="filter__label" for="prm-environmental-search">Filter documents</label>
             <input
-              id="ssow-search"
+              id="prm-environmental-search"
               type="search"
               class="filter__input"
-              placeholder="Search quarry, tipping, lifting…"
+              placeholder="Search dust, environmental…"
+              autocomplete="off"
+            />
+          </div>
+        </header>
+        <div id="prm-mount-environmental"></div>
+      </section>
+
+      <!-- ============================================================
+           16. STATUTORY SUPERVISOR APPOINTMENTS (Reg 8)
+           ============================================================ -->
+      <section class="block" id="reg8" aria-labelledby="reg8-title">
+        <header class="block__head">
+          <div>
+            <h2 id="reg8-title" class="block__title">Statutory supervisor appointments</h2>
+            <p class="block__sub">
+              Site supervisor appointments under regulation 8(1)(d) and appointed
+              competent managers under regulation 8(1)(c) of the Quarries Regulations 1999.
+            </p>
+          </div>
+          <div class="filter">
+            <label class="filter__label" for="reg8-search">Filter sites</label>
+            <input
+              id="reg8-search"
+              type="search"
+              class="filter__input"
+              placeholder="Search sites or managers — Barry Thompson, Roy Underwood…"
               autocomplete="off"
             />
           </div>
         </header>
 
-        <a class="signoff-banner" href="https://form.jotform.com/261664700548056" target="_blank" rel="noopener" aria-label="Open the Safe System of Work Sign-Off Sheet">
-          <span class="signoff-banner__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/><path d="M14.06 6.19l3.75 3.75"/></svg>
-          </span>
-          <span class="signoff-banner__body">
-            <span class="signoff-banner__title">Sign for safe systems of work</span>
-            <span class="signoff-banner__sub">Tick every SSoW you've read and sign once. Multi-select supported.</span>
-          </span>
-          <span class="signoff-banner__cta">Open form
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
-          </span>
-        </a>
-
-        <div class="grid grid--ssow" id="ssow-grid"></div>
+        <div class="ra-groups reg8-groups" id="reg8-groups"></div>
       </section>
 
       <section class="block block--footer-note">
@@ -564,6 +746,6 @@
       </div>
     </footer>
 
-    <script src="app.js?v=20260807b"></script>
+    <script src="app.js?v=20260807c"></script>
   </body>
 </html>
