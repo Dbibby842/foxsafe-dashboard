@@ -216,12 +216,6 @@ const permits = {
     { code: 'INS', title: 'Daily Recycling Yard / Tip Inspection', doc: 'https://form.jotform.com/251733443036351' },
     { code: 'INS', title: 'Weekly Inspection Report', doc: 'https://form.jotform.com/251683874798075' },
   ],
-  'Incident & Reporting': [
-    { code: 'INC', title: 'Accident & Near Miss Reporting Procedure (V6)', doc: 'docs/INC-Accident-Near-Miss-Procedure.pdf' },
-    { code: 'INC', title: 'Accident / Incident Reporting Flowchart', doc: 'docs/INC-Reporting-Flowchart.pdf' },
-    { code: 'FORM', title: 'Accident Report Form (online)', doc: 'https://docs.google.com/forms/d/1BsH2HjnSzJb5k-JbbBRYr0VDPwfH5-vRsiHF07J3sCM/viewform' },
-    { code: 'FORM', title: 'Near Miss Report Form 2025 (online)', doc: 'https://docs.google.com/forms/d/1aXyo6o193Vb45RH32ywvIikrofgyuIdU9o9o52u85is/viewform' },
-  ],
   'Rules & Procedures': [
     { code: 'PRC', title: 'Daily Briefing (V2)', doc: 'https://form.jotform.com/261662564334358?docType=Daily%20Pre-Start%20Briefing' },
     { code: 'PRC', title: 'General Conduct Rules', doc: 'docs/PRC-General-Conduct-Rules.pdf' },

@@ -43,6 +43,7 @@
           <a class="app-nav__link is-active" href="#sites">Sites</a>
           <a class="app-nav__link" href="#management-diagram">Management diagram</a>
           <a class="app-nav__link" href="#first-aid">First aiders</a>
+          <a class="app-nav__link" href="#incident-reporting">Incident &amp; reporting</a>
           <a class="app-nav__link" href="#reg8">Reg 8 appointments</a>
           <a class="app-nav__link" href="#permits">Permits &amp; checks</a>
           <a class="app-nav__link" href="#tbt">Toolbox talks</a>
@@ -179,7 +180,7 @@
       </section>
 
       <!-- ============================================================
-           MANAGEMENT DIAGRAM
+           MANAGEMENT DIAGRAM (click-through card)
            ============================================================ -->
       <section class="block" id="management-diagram" aria-labelledby="management-diagram-title">
         <header class="block__head">
@@ -191,30 +192,35 @@
               Woods Waste, and Bradley's Sand Pit.
             </p>
           </div>
-          <div class="filter">
-            <a
-              class="btn btn--primary"
-              href="docs/Fox-Group-Quarries-Management-Diagram.pdf"
-              target="_blank"
-              rel="noopener"
-            >Open PDF</a>
-          </div>
         </header>
 
-        <div class="pdf-embed">
-          <object
-            data="docs/Fox-Group-Quarries-Management-Diagram.pdf#view=FitH"
-            type="application/pdf"
-            width="100%"
-            height="720"
-            aria-label="Fox Group Quarries Management Diagram"
-          >
-            <p>
-              Your browser cannot display embedded PDFs.
-              <a href="docs/Fox-Group-Quarries-Management-Diagram.pdf" target="_blank" rel="noopener">Download the Management Diagram PDF</a>.
-            </p>
-          </object>
-        </div>
+        <a
+          class="doc-card doc-card--diagram"
+          href="docs/Fox-Group-Quarries-Management-Diagram.pdf"
+          target="_blank"
+          rel="noopener"
+          aria-label="Open Fox Group Quarries Management Diagram PDF in a new tab"
+        >
+          <div class="doc-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 3 14 8 19 8"/>
+              <line x1="9" y1="13" x2="15" y2="13"/>
+              <line x1="9" y1="17" x2="15" y2="17"/>
+            </svg>
+          </div>
+          <div class="doc-card__body">
+            <div class="doc-card__title">Fox Group Quarries — Management Diagram</div>
+            <div class="doc-card__meta">PDF · Doc Ref H/Aug2026/1 · Click to open in a new tab</div>
+          </div>
+          <div class="doc-card__cta" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+          </div>
+        </a>
       </section>
 
       <!-- ============================================================
@@ -243,6 +249,99 @@
         </header>
 
         <div class="grid grid--sites" id="first-aid-grid" role="list"></div>
+      </section>
+
+      <!-- ============================================================
+           INCIDENT & REPORTING (paired with First Aiders)
+           ============================================================ -->
+      <section class="block" id="incident-reporting" aria-labelledby="incident-reporting-title">
+        <header class="block__head">
+          <div>
+            <h2 id="incident-reporting-title" class="block__title">Incident &amp; reporting</h2>
+            <p class="block__sub">
+              Accident, near-miss and dangerous-occurrence reporting. Use the online forms for
+              live reports; the procedure and flowchart PDFs set out the steps and escalation route.
+            </p>
+          </div>
+        </header>
+
+        <div class="doc-cards" id="incident-cards">
+          <a
+            class="doc-card doc-card--form"
+            href="https://docs.google.com/forms/d/1BsH2HjnSzJb5k-JbbBRYr0VDPwfH5-vRsiHF07J3sCM/viewform"
+            target="_blank"
+            rel="noopener"
+            aria-label="Open Accident Report Form in a new tab"
+          >
+            <div class="doc-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+            </div>
+            <div class="doc-card__body">
+              <div class="doc-card__title">Accident Report Form</div>
+              <div class="doc-card__meta">Online form · Google Forms</div>
+            </div>
+            <div class="doc-card__cta" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </div>
+          </a>
+
+          <a
+            class="doc-card doc-card--form"
+            href="https://docs.google.com/forms/d/1aXyo6o193Vb45RH32ywvIikrofgyuIdU9o9o52u85is/viewform"
+            target="_blank"
+            rel="noopener"
+            aria-label="Open Near Miss Report Form in a new tab"
+          >
+            <div class="doc-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+            </div>
+            <div class="doc-card__body">
+              <div class="doc-card__title">Near Miss Report Form 2025</div>
+              <div class="doc-card__meta">Online form · Google Forms</div>
+            </div>
+            <div class="doc-card__cta" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </div>
+          </a>
+
+          <a
+            class="doc-card"
+            href="docs/INC-Accident-Near-Miss-Procedure.pdf"
+            target="_blank"
+            rel="noopener"
+            aria-label="Open Accident and Near Miss Reporting Procedure PDF in a new tab"
+          >
+            <div class="doc-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><polyline points="14 3 14 8 19 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+            </div>
+            <div class="doc-card__body">
+              <div class="doc-card__title">Accident &amp; Near Miss Reporting Procedure (V6)</div>
+              <div class="doc-card__meta">PDF · Procedure</div>
+            </div>
+            <div class="doc-card__cta" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </div>
+          </a>
+
+          <a
+            class="doc-card"
+            href="docs/INC-Reporting-Flowchart.pdf"
+            target="_blank"
+            rel="noopener"
+            aria-label="Open Accident / Incident Reporting Flowchart PDF in a new tab"
+          >
+            <div class="doc-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><path d="M10 6.5h4"/><path d="M10 17.5h4"/><path d="M6.5 10v4"/><path d="M17.5 10v4"/></svg>
+            </div>
+            <div class="doc-card__body">
+              <div class="doc-card__title">Accident / Incident Reporting Flowchart</div>
+              <div class="doc-card__meta">PDF · Flowchart</div>
+            </div>
+            <div class="doc-card__cta" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </div>
+          </a>
+        </div>
       </section>
 
       <!-- ============================================================
