@@ -110,6 +110,8 @@ const riskAssessments = {
     { code: 'T004', title: 'Driving Tipper Wagon (on site)', doc: 'docs/RA-T004.pdf' },
     { code: 'T005', title: 'Entry & Exit from Wagons', doc: 'docs/RA-T005.pdf' },
     { code: 'T006', title: 'Driving in Fox Group Yards', doc: 'docs/RA-T006.pdf' },
+  ],
+  'Wash Plant': [
     { code: 'WP-001', title: 'CDE 200tph C&D Wash Plant — General Operation (umbrella)', doc: 'docs/WP-001-CDE-200tph-C-D-Wash-Plant-General-Operation-whole-plant-umbrella.pdf' },
     { code: 'WP-002', title: 'Feed Hopper & Apron Feeder — Feeding and Blockage Clearance', doc: 'docs/WP-002-Feed-Hopper-Apron-Feeder-Feeding-and-Blockage-Clearance.pdf' },
     { code: 'WP-003', title: 'Picking Station — Manual Sorting of C&D Feed', doc: 'docs/WP-003-Picking-Station-Manual-Sorting-of-C-D-Feed.pdf' },
@@ -144,6 +146,7 @@ const ssow = [
   { code: 'SSoW-051', title: 'Managing Dust in Construction', doc: 'docs/SSoW-051.pdf' },
   { code: 'SSoW-057', title: 'Casting Over Quarry Face', doc: 'docs/SSoW-057.pdf' },
   { code: 'SSoW-063', title: 'Working in a Quarry', doc: 'docs/SSoW-063.pdf' },
+  { code: 'SSoW-081', title: 'Operating the CDE 200tph C&D Waste Wash Plant', doc: 'docs/SSoW-081.pdf' },
 ];
 
 /* ---------- First Aiders (per quarry) ---------- */
